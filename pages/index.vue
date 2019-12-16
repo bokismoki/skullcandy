@@ -2,17 +2,20 @@
   <div class="home">
     <main>
       <Hero />
+      <ProductsCarousel />
     </main>
   </div>
 </template>
 
 <script>
 import Hero from '~/components/Hero'
+import ProductsCarousel from '~/components/ProductsCarousel'
 
 export default {
   name: 'home',
   components: {
-    Hero
+    Hero,
+    ProductsCarousel
   }
 }
 </script>

@@ -1,0 +1,74 @@
+<template>
+  <section class="products_carousel">
+    <div
+      class="h-screen cursor-pointer relative px-5"
+      :style="'background: url(' + images[currentSlide] + ') center/cover no-repeat'"
+    >
+      <img
+        class="absolute w-8 cursor-pointer"
+        style="top: 50%; transform: translate(-50%);"
+        src="~/assets/img/chevron_left.svg"
+        alt="Chevron Left"
+        @click="switchSlide('-')"
+      />
+      <img
+        class="absolute w-8 cursor-pointer right-0"
+        style="top: 50%; transform: translate(-50%);"
+        src="~/assets/img/chevron_right.svg"
+        alt="Chevron Right"
+        @click="switchSlide('+')"
+      />
+      <div
+        class="absolute flex items-center justify-center"
+        style="left: 50%; bottom: 25px; transform: translate(-50%);"
+      >
+        <span
+          class="w-3 h-3 mx-2 bg-white rounded-full"
+          :class="{'bg-gray-800': currentSlide === 0}"
+        ></span>
+        <span
+          class="w-3 h-3 mx-2 bg-white rounded-full"
+          :class="{'bg-gray-800': currentSlide === 1}"
+        ></span>
+        <span
+          class="w-3 h-3 mx-2 bg-white rounded-full"
+          :class="{'bg-gray-800': currentSlide === 2}"
+        ></span>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script>
+export default {
+  name: 'ProductsCarousel',
+  data() {
+    return {
+      currentSlide: 0,
+      images: [
+        require('~/assets/img/crusher_headphones.jpg'),
+        require('~/assets/img/push_earbuds.jpg'),
+        require('~/assets/img/venue_headphones.jpg')
+      ]
+    }
+  },
+  methods: {
+    switchSlide(direction) {
+      if (direction === '-') {
+        if (this.currentSlide === 0) {
+          return (this.currentSlide = this.images.length - 1)
+        }
+        this.currentSlide--
+      } else {
+        if (this.currentSlide === 2) {
+          return (this.currentSlide = 0)
+        }
+        this.currentSlide++
+      }
+    }
+  }
+}
+</script>
+
+<style scoped>
+</style>
