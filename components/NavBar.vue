@@ -22,7 +22,7 @@
         <div class="fixed left-0 bg-black w-full" style="top: 68px;" v-if="menuOpen">
           <ul class="text-white">
             <li
-              class="flex items-center justify-between cursor-pointer border-t-2 p-3 border-gray-700 hover:text-gray-600"
+              class="flex items-center justify-between cursor-pointer border-t-2 p-3 border-gray-700 hover:opacity-75"
               @click="shopOpen = !shopOpen"
             >
               <span class="text-sm">SHOP</span>
@@ -35,11 +35,11 @@
                 />
               </span>
             </li>
-            <li class="cursor-pointer border-t-2 px-2 py-3 border-gray-700 hover:text-gray-600">
+            <li class="cursor-pointer border-t-2 px-2 py-3 border-gray-700 hover:opacity-75">
               <span class="text-sm">12 MOODS</span>
             </li>
             <li
-              class="flex items-center justify-between cursor-pointer border-t-2 p-3 border-gray-700 hover:text-gray-600"
+              class="flex items-center justify-between cursor-pointer border-t-2 p-3 border-gray-700 hover:opacity-75"
               @click="supportOpen = !supportOpen"
             >
               <span class="text-sm">SUPPORT</span>
@@ -53,7 +53,7 @@
               </span>
             </li>
             <li
-              class="flex items-center justify-between cursor-pointer border-t-2 p-3 border-gray-700 hover:text-gray-600"
+              class="flex items-center justify-between cursor-pointer border-t-2 p-3 border-gray-700 hover:opacity-75"
               @click="locationOpen = !locationOpen"
             >
               <span class="text-sm">LOCATION</span>
@@ -66,7 +66,7 @@
                 />
               </span>
             </li>
-            <li class="flex items-center border-t-2 p-3 border-gray-700">
+            <li class="flex items-center border-t-2 p-3 border-gray-700 cursor-pointer">
               <img class="w-5 mr-5" src="~/assets/img/user.svg" alt="User" />
               <span class="text-xs text-gray-500">Account</span>
             </li>
