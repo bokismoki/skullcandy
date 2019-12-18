@@ -1,7 +1,7 @@
 <template>
   <footer class="bg-black text-white">
     <div class="px-3 py-10">
-      <div class="text-center">
+      <div class="text-center sm:w-1/2 sm:mx-auto">
         <h1 class="font-bold">HEAR IT FIRST</h1>
         <h2
           class="mt-2 mb-10 text-sm"
@@ -139,11 +139,12 @@
         </div>
       </div>
     </div>
-    <div>
-      <p class="py-5 text-center text-gray-600 text-xs border-t-2 border-gray-700">
+    <div class="border-t-2 border-gray-700 p-5 sm:flex sm:items-center sm:justify-between">
+      <p class="text-center text-gray-600 text-xs">
         <span class="cursor-pointer hover:text-gray-400">Privacy Policy</span> |
         <span class="cursor-pointer hover:text-gray-400">Terms of Use</span>
       </p>
+      <p class="text-center text-gray-600 text-xs">&copy; 2019 Skullcandy.com All Rights Reserved</p>
     </div>
   </footer>
 </template>

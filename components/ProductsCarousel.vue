@@ -1,7 +1,7 @@
 <template>
-  <section class="products_carousel">
+  <section class="products-carousel">
     <div
-      class="h-screen cursor-pointer relative px-5"
+      class="h-screen cursor-pointer relative px-5 sm:hidden"
       :style="'background: url(' + images[currentSlide] + ') center/cover no-repeat'"
     >
       <img
@@ -35,6 +35,20 @@
           :class="{'bg-gray-800': currentSlide === 2}"
         ></span>
       </div>
+    </div>
+    <div class="products hidden sm:flex">
+      <div
+        class="w-1/3 cursor-pointer"
+        :style="'background: url(' + images[0] + ') center/cover no-repeat'"
+      ></div>
+      <div
+        class="w-1/3 cursor-pointer"
+        :style="'background: url(' + images[1] + ') center/cover no-repeat'"
+      ></div>
+      <div
+        class="w-1/3 cursor-pointer"
+        :style="'background: url(' + images[2] + ') center/cover no-repeat'"
+      ></div>
     </div>
   </section>
 </template>
@@ -71,4 +85,9 @@ export default {
 </script>
 
 <style scoped>
+@media (min-width: 640px) {
+  .products-carousel .products {
+    height: 300px !important;
+  }
+}
 </style>
