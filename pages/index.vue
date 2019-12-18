@@ -4,13 +4,13 @@
       <Hero />
       <ProductsCarousel />
       <PreFooterSection
-        image="sesh_earbuds.jpg"
+        image="sesh_earbuds"
         h1="No wires. No worries."
         p="Check out Sesh, our easy-to-use, completely wireless earbuds."
         button="SHOP NOW"
       />
       <PreFooterSection
-        image="holiday.jpg"
+        image="holiday"
         h1="Holiday hook ups."
         p="Scoop the ones you've been waiting to see on sale. Order by 12/19 to get it by 12/24."
         button="SHOP SALE"

@@ -6,7 +6,7 @@
         :style="'background: url(' + images[0] + ') center/cover no-repeat'"
       >
         <div
-          class="pl-5 pb-5 sm:absolute sm:bottom-0 sm:left-0 sm:w-1/2 md:w-2/3 md:pl-12 md:pb-12 lg:pl-20 lg:pb-20"
+          class="p-5 sm:absolute sm:bottom-0 sm:left-0 sm:w-1/2 md:w-2/3 md:pl-12 md:pb-12 lg:pl-20 lg:pb-20"
         >
           <h1
             class="text-4xl text-center uppercase leading-none font-black sm:text-lg sm:text-left md:text-xl lg:text-3xl"

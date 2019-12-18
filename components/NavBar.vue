@@ -24,7 +24,7 @@
           <img class="w-5" src="~/assets/img/cart.svg" alt="Shopping Cart" />
         </div>
       </div>
-      <transition name="slide">
+      <transition name="nav-slide">
         <div
           class="fixed left-0 bottom-0 bg-black w-full lg:hidden"
           style="top: 68px;"
@@ -238,16 +238,16 @@ export default {
 </script>
 
 <style scoped>
-.slide-enter,
-.slide-leave-to {
+.nav-slide-enter,
+.nav-slide-leave-to {
   left: -100%;
 }
-.slide-enter-to,
-.slide-leave {
+.nav-slide-enter-to,
+.nav-slide-leave {
   left: 0px;
 }
-.slide-enter-active,
-.slide-leave-active {
+.nav-slide-enter-active,
+.nav-slide-leave-active {
   transition: left 500ms;
 }
 
