@@ -95,4 +95,9 @@ export default {
     height: 400px !important;
   }
 }
+@media (min-width: 1280px) {
+  .products-carousel .products {
+    height: 500px !important;
+  }
+}
 </style>

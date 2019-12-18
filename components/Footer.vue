@@ -1,7 +1,7 @@
 <template>
   <footer class="bg-black text-white">
     <div class="px-3 pt-10">
-      <div class="text-center sm:w-1/2 sm:mx-auto">
+      <div class="text-center sm:w-1/2 sm:mx-auto xl:w-1/3">
         <h1 class="font-bold">HEAR IT FIRST</h1>
         <h2
           class="mt-2 mb-10 text-sm"
@@ -134,33 +134,33 @@
           </div>
           <div class="hidden md:flex md:justify-center">
             <ul class="mr-5 lg:mr-20">
-              <li class="text-sm cursor-pointer hover:opacity-75">Help</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Center</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Contact</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Us</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Account</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Product</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Help</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Warranty</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Order</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Status</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Help</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Center</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Contact</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Us</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Account</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Product</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Help</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Warranty</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Order</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Status</li>
             </ul>
             <ul class="mr-5 lg:mr-20">
-              <li class="text-sm cursor-pointer hover:opacity-75">Compare</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Custom</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Product</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Bulk</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Orders</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Student</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Discount</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Press</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Releases</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Compare</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Custom</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Product</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Bulk</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Orders</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Student</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Discount</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Press</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Releases</li>
             </ul>
             <ul>
-              <li class="text-sm cursor-pointer hover:opacity-75">Our Story</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Born in PC</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Protect Our Winters</li>
-              <li class="text-sm cursor-pointer hover:opacity-75">Careers</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Our Story</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Born in PC</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Protect Our Winters</li>
+              <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Careers</li>
             </ul>
           </div>
         </div>
