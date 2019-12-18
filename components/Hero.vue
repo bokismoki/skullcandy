@@ -6,16 +6,16 @@
         :style="'background: url(' + images[0] + ') center/cover no-repeat'"
       >
         <div
-          class="p-5 sm:absolute sm:bottom-0 sm:left-0 sm:w-1/2 md:w-2/3 md:pl-12 md:pb-12 lg:pl-20 lg:pb-20"
+          class="p-5"
         >
           <h1
-            class="text-4xl text-center uppercase leading-none font-black sm:text-lg sm:text-left md:text-xl lg:text-3xl"
+            class="text-4xl text-center uppercase leading-none font-black"
           >Golden deals on music feels.</h1>
           <p
-            class="text-sm text-center my-4 sm:text-left sm:leading-none xl:text-lg"
+            class="text-sm text-center my-4"
           >See what you can score for up to 25% off during our holiday sale.</p>
           <a
-            class="text-sm text-center text-white bg-gray-900 hover:bg-gray-800 w-full block py-3 tracking-wide xl:inline-block xl:w-auto xl:px-5"
+            class="text-sm text-center text-white bg-gray-900 hover:bg-gray-800 w-full block py-3 tracking-wide"
             href="#"
           >SHOP SALE</a>
         </div>
