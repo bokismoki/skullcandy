@@ -5,9 +5,9 @@
         class="hero-big h-screen sm:w-2/3 sm:relative"
         :style="'background: url(' + images[0] + ') center/cover no-repeat'"
       >
-        <div class="p-5 text-center sm:absolute sm:bottom-0 sm:left-0 sm:w-1/2">
+        <div class="p-5 text-center sm:absolute sm:bottom-0 sm:left-0 sm:w-1/2 md:p-12">
           <h1
-            class="text-4xl uppercase leading-none font-black sm:text-lg sm:text-left"
+            class="text-4xl uppercase leading-none font-black sm:text-lg sm:text-left md:text-xl"
           >Golden deals on music feels.</h1>
           <p
             class="text-sm my-4 sm:text-left sm:leading-none"

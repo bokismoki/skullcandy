@@ -55,10 +55,10 @@
                     </div>
                     <div class="mt-3" v-if="headphonesOpen">
                       <ul>
-                        <li class="text-xs my-1 ml-2 hover:opacity-75">Wireless Headphones</li>
-                        <li class="text-xs my-1 ml-2 hover:opacity-75">Wired Headphones</li>
-                        <li class="text-xs my-1 ml-2 hover:opacity-75">Crusher ANC - NEW</li>
-                        <li class="text-xs my-1 ml-2 hover:opacity-75">Shop All Headphones</li>
+                        <li class="text-xs py-1 ml-2 hover:opacity-75">Wireless Headphones</li>
+                        <li class="text-xs py-1 ml-2 hover:opacity-75">Wired Headphones</li>
+                        <li class="text-xs py-1 ml-2 hover:opacity-75">Crusher ANC - NEW</li>
+                        <li class="text-xs py-1 ml-2 hover:opacity-75">Shop All Headphones</li>
                       </ul>
                     </div>
                   </li>
@@ -79,12 +79,12 @@
                     </div>
                     <div class="mt-3" v-if="earbudsOpen">
                       <ul>
-                        <li class="text-xs my-1 ml-2 hover:opacity-75">True Wireless</li>
-                        <li class="text-xs my-1 ml-2 hover:opacity-75">Wireless Earbuds</li>
-                        <li class="text-xs my-1 ml-2 hover:opacity-75">Wired Earbuds</li>
-                        <li class="text-xs my-1 ml-2 hover:opacity-75">Indy True Wireless - NEW</li>
-                        <li class="text-xs my-1 ml-2 hover:opacity-75">Sesh True Wireless - NEW</li>
-                        <li class="text-xs my-1 ml-2 hover:opacity-75">Shop All Earbuds</li>
+                        <li class="text-xs py-1 ml-2 hover:opacity-75">True Wireless</li>
+                        <li class="text-xs py-1 ml-2 hover:opacity-75">Wireless Earbuds</li>
+                        <li class="text-xs py-1 ml-2 hover:opacity-75">Wired Earbuds</li>
+                        <li class="text-xs py-1 ml-2 hover:opacity-75">Indy True Wireless - NEW</li>
+                        <li class="text-xs py-1 ml-2 hover:opacity-75">Sesh True Wireless - NEW</li>
+                        <li class="text-xs py-1 ml-2 hover:opacity-75">Shop All Earbuds</li>
                       </ul>
                     </div>
                   </li>
@@ -108,10 +108,10 @@
                         <li
                           class="text-xs my-1 ml-2 hover:opacity-75"
                         >Backpacks, Travel Kits & Cases</li>
-                        <li class="text-xs my-1 ml-2 hover:opacity-75">Power Accessories</li>
-                        <li class="text-xs my-1 ml-2 hover:opacity-75">Hats</li>
-                        <li class="text-xs my-1 ml-2 hover:opacity-75">Speakers</li>
-                        <li class="text-xs my-1 ml-2 hover:opacity-75">Shop All Accessories</li>
+                        <li class="text-xs py-1 ml-2 hover:opacity-75">Power Accessories</li>
+                        <li class="text-xs py-1 ml-2 hover:opacity-75">Hats</li>
+                        <li class="text-xs py-1 ml-2 hover:opacity-75">Speakers</li>
+                        <li class="text-xs py-1 ml-2 hover:opacity-75">Shop All Accessories</li>
                       </ul>
                     </div>
                   </li>
@@ -132,10 +132,10 @@
                     </div>
                     <div class="mt-3" v-if="specialsOpen">
                       <ul>
-                        <li class="text-xs my-1 ml-2 hover:opacity-75">12 Moods</li>
-                        <li class="text-xs my-1 ml-2 hover:opacity-75">Custom Product</li>
-                        <li class="text-xs my-1 ml-2 hover:opacity-75">New Arrivals</li>
-                        <li class="text-xs my-1 ml-2 hover:opacity-75">Sale</li>
+                        <li class="text-xs py-1 ml-2 hover:opacity-75">12 Moods</li>
+                        <li class="text-xs py-1 ml-2 hover:opacity-75">Custom Product</li>
+                        <li class="text-xs py-1 ml-2 hover:opacity-75">New Arrivals</li>
+                        <li class="text-xs py-1 ml-2 hover:opacity-75">Sale</li>
                       </ul>
                     </div>
                   </li>
@@ -162,10 +162,10 @@
               </div>
               <div class="mt-3" v-if="supportOpen">
                 <ul>
-                  <li class="text-xs my-1 ml-2 hover:opacity-75">HELP CENTER</li>
-                  <li class="text-xs my-1 ml-2 hover:opacity-75">PRODUCT HELP</li>
-                  <li class="text-xs my-1 ml-2 hover:opacity-75">WARRANTY</li>
-                  <li class="text-xs my-1 ml-2 hover:opacity-75">ORDER STATUS</li>
+                  <li class="text-xs py-1 ml-2 hover:opacity-75">HELP CENTER</li>
+                  <li class="text-xs py-1 ml-2 hover:opacity-75">PRODUCT HELP</li>
+                  <li class="text-xs py-1 ml-2 hover:opacity-75">WARRANTY</li>
+                  <li class="text-xs py-1 ml-2 hover:opacity-75">ORDER STATUS</li>
                 </ul>
               </div>
             </li>
@@ -186,11 +186,11 @@
               </div>
               <div class="mt-3" v-if="locationOpen">
                 <ul>
-                  <li class="text-xs my-1 ml-2 hover:opacity-75">NORTH AMERICA</li>
-                  <li class="text-xs my-1 ml-2 hover:opacity-75">EUROPE / MIDDLE EAST</li>
-                  <li class="text-xs my-1 ml-2 hover:opacity-75">AFRICA</li>
-                  <li class="text-xs my-1 ml-2 hover:opacity-75">ASIA</li>
-                  <li class="text-xs my-1 ml-2 hover:opacity-75">PACIFIC</li>
+                  <li class="text-xs py-1 ml-2 hover:opacity-75">NORTH AMERICA</li>
+                  <li class="text-xs py-1 ml-2 hover:opacity-75">EUROPE / MIDDLE EAST</li>
+                  <li class="text-xs py-1 ml-2 hover:opacity-75">AFRICA</li>
+                  <li class="text-xs py-1 ml-2 hover:opacity-75">ASIA</li>
+                  <li class="text-xs py-1 ml-2 hover:opacity-75">PACIFIC</li>
                 </ul>
               </div>
             </li>
