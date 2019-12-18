@@ -5,9 +5,11 @@
         class="hero-big h-screen sm:w-2/3 sm:relative"
         :style="'background: url(' + images[0] + ') center/cover no-repeat'"
       >
-        <div class="p-5 text-center sm:absolute sm:bottom-0 sm:left-0 sm:w-1/2 md:p-12">
+        <div
+          class="pl-5 pb-5 text-center sm:absolute sm:bottom-0 sm:left-0 sm:w-1/2 md:w-2/3 md:pl-12 md:pb-12 lg:pl-20 lg:pb-20"
+        >
           <h1
-            class="text-4xl uppercase leading-none font-black sm:text-lg sm:text-left md:text-xl"
+            class="text-4xl uppercase leading-none font-black sm:text-lg sm:text-left md:text-xl lg:text-3xl"
           >Golden deals on music feels.</h1>
           <p
             class="text-sm my-4 sm:text-left sm:leading-none"
@@ -57,6 +59,14 @@ export default {
   }
   .hero .hero-small {
     height: 230px !important;
+  }
+}
+@media (min-width: 1024px) {
+  .hero {
+    margin-top: 61px !important;
+  }
+  .hero .hero-small {
+    height: 50vh !important;
   }
 }
 </style>

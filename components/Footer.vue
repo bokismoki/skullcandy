@@ -13,7 +13,7 @@
         />
       </div>
       <div
-        class="md:flex md:items-start md:justify-between md:py-2 md:my-16 md:border-t-2 md:border-gray-700"
+        class="md:flex md:items-start md:justify-between md:py-2 md:my-16 md:border-t-2 md:border-gray-700 lg:px-10"
       >
         <div class="mt-10">
           <h1 class="text-center text-sm font-semibold md:text-lg">FOLLOW US</h1>
@@ -133,7 +133,7 @@
             </ul>
           </div>
           <div class="hidden md:flex md:justify-center">
-            <ul class="mr-5">
+            <ul class="mr-5 lg:mr-20">
               <li class="text-sm cursor-pointer hover:opacity-75">Help</li>
               <li class="text-sm cursor-pointer hover:opacity-75">Center</li>
               <li class="text-sm cursor-pointer hover:opacity-75">Contact</li>
@@ -145,7 +145,7 @@
               <li class="text-sm cursor-pointer hover:opacity-75">Order</li>
               <li class="text-sm cursor-pointer hover:opacity-75">Status</li>
             </ul>
-            <ul class="mr-5">
+            <ul class="mr-5 lg:mr-20">
               <li class="text-sm cursor-pointer hover:opacity-75">Compare</li>
               <li class="text-sm cursor-pointer hover:opacity-75">Custom</li>
               <li class="text-sm cursor-pointer hover:opacity-75">Product</li>

@@ -36,18 +36,18 @@
         ></span>
       </div>
     </div>
-    <div class="products hidden sm:flex">
+    <div class="products hidden sm:flex" style="background-color: #1d1d1d;">
       <div
         class="w-1/3 cursor-pointer"
-        :style="'background: url(' + images[0] + ') center/cover no-repeat'"
+        :style="'background: url(' + images[0] + ') center/contain no-repeat'"
       ></div>
       <div
         class="w-1/3 cursor-pointer"
-        :style="'background: url(' + images[1] + ') center/cover no-repeat'"
+        :style="'background: url(' + images[1] + ') center/contain no-repeat'"
       ></div>
       <div
         class="w-1/3 cursor-pointer"
-        :style="'background: url(' + images[2] + ') center/cover no-repeat'"
+        :style="'background: url(' + images[2] + ') center/contain no-repeat'"
       ></div>
     </div>
   </section>
@@ -88,6 +88,11 @@ export default {
 @media (min-width: 640px) {
   .products-carousel .products {
     height: 300px !important;
+  }
+}
+@media (min-width: 1100px) {
+  .products-carousel .products {
+    height: 400px !important;
   }
 }
 </style>

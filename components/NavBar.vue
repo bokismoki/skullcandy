@@ -1,25 +1,35 @@
 <template>
-  <nav class="navbar fixed top-0 z-50 w-full bg-black">
+  <nav class="navbar fixed top-0 z-50 w-full bg-black lg:px-6">
     <div class="px-3 py-1">
       <div class="flex justify-between items-center py-2">
-        <div class="hamburger_menu cursor-pointer" @click="menuOpen = !menuOpen">
+        <div class="hamburger_menu cursor-pointer lg:hidden" @click="menuOpen = !menuOpen">
           <div class="line w-8 h-1 bg-white my-2" :class="{'top_active': menuOpen}"></div>
           <div class="line w-8 h-1 bg-white my-2" :class="{'opacity-0': menuOpen}"></div>
           <div class="line w-8 h-1 bg-white my-2" :class="{'bottom_active': menuOpen}"></div>
         </div>
-        <div>
+        <div class="lg:flex lg:items-center">
           <img
-            class="w-40 cursor-pointer"
+            class="w-40 cursor-pointer lg:mr-5"
             src="~/assets/img/skullcandy_logo.jpg"
             alt="Skullcandy Logo"
           />
+          <a class="hidden lg:inline text-white text-sm mr-5" href="#">SHOP</a>
+          <a class="hidden lg:inline text-white text-sm" href="#">12 MOODS</a>
         </div>
-        <div class="p-2 cursor-pointer">
+        <div class="p-2 cursor-pointer lg:flex lg:items-center">
+          <a class="hidden lg:inline text-white text-xs opacity-75 mr-5" href="#">Location</a>
+          <a class="hidden lg:inline text-white text-xs opacity-75 mr-5" href="#">Support</a>
+          <img class="hidden lg:inline w-5 mr-5" src="~/assets/img/user.svg" alt="User" />
+          <img class="hidden lg:inline w-5 mr-5" src="~/assets/img/magnifying_glass.svg" alt="Magnifying glass" />
           <img class="w-5" src="~/assets/img/cart.svg" alt="Shopping Cart" />
         </div>
       </div>
       <transition name="slide">
-        <div class="fixed left-0 bottom-0 bg-black w-full" style="top: 68px;" v-if="menuOpen">
+        <div
+          class="fixed left-0 bottom-0 bg-black w-full lg:hidden"
+          style="top: 68px;"
+          v-if="menuOpen"
+        >
           <ul class="text-white">
             <li class="flex flex-col cursor-pointer border-t-2 p-3 border-gray-700">
               <div

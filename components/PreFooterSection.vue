@@ -9,7 +9,7 @@
         :class="{'right-0': button === 'SHOP SALE'}"
       >
         <h1
-          class="text-4xl text-white uppercase leading-none font-black sm:text-left sm:text-lg md:text-xl"
+          class="text-4xl text-white uppercase leading-none font-black sm:text-left sm:text-lg md:text-xl lg:text-3xl"
         >{{h1}}</h1>
         <p class="text-sm text-white my-4 sm:text-left sm:leading-none">{{p}}</p>
         <a class="text-sm bg-white w-full block py-3 tracking-wide" href="#">{{button}}</a>
@@ -37,6 +37,11 @@ export default {
 @media (min-width: 640px) {
   .pre-footer-section .section {
     height: 270px !important;
+  }
+}
+@media (min-width: 1100px) {
+  .pre-footer-section .section {
+    height: 350px !important;
   }
 }
 </style>
