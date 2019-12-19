@@ -1,6 +1,6 @@
 <template>
-  <div class="sign-in" style="margin-top: 68px;">
-    <div class="py-10 px-5 md:flex md:justify-between md:items-start md:px-10 md:py-16 lg:py-24 lg:px-16">
+  <div class="container mx-auto sign-in" style="margin-top: 68px;">
+    <div class="py-10 px-5 md:flex md:justify-between md:items-start md:px-10 md:py-16 lg:py-24">
       <div class="md:w-1/2 md:mr-10">
         <h1 class="text-center font-black text-4xl md:text-left md:text-5xl">SIGN IN</h1>
         <form>

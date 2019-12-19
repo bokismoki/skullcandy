@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar fixed top-0 z-50 w-full bg-black lg:px-6">
-    <div class="px-3 py-1">
+    <div class="container mx-auto px-3 py-1">
       <div class="flex justify-between items-center py-2">
         <div class="hamburger_menu cursor-pointer lg:hidden" @click="menuOpen = !menuOpen">
           <div class="line w-8 h-1 bg-white my-2" :class="{'top_active': menuOpen}"></div>
