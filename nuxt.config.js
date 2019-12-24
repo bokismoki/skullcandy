@@ -60,5 +60,19 @@ module.exports = {
     */
     extend(config, ctx) {
     }
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/user/signin', method: 'post', propertyName: 'token' },
+          user: { url: '/user/get', method: 'get', propertyName: false },
+          logout: false
+        },
+        tokenType: ''
+      }
+    },
+    redirect: false
   }
 }

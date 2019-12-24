@@ -15,7 +15,6 @@
         p="Scoop the ones you've been waiting to see on sale. Order by 12/19 to get it by 12/24."
         button="SHOP SALE"
       />
-      <Footer />
     </main>
   </div>
 </template>
@@ -24,15 +23,13 @@
 import Hero from '~/components/Hero'
 import ProductsCarousel from '~/components/ProductsCarousel'
 import PreFooterSection from '~/components/PreFooterSection'
-import Footer from '~/components/Footer'
 
 export default {
   name: 'home',
   components: {
     Hero,
     ProductsCarousel,
-    PreFooterSection,
-    Footer
+    PreFooterSection
   }
 }
 </script>

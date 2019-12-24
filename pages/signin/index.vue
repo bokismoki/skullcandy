@@ -42,10 +42,12 @@
           <li class="text-sm ml-10 mt-1 opacity-75">Access your order history</li>
           <li class="text-sm ml-10 mt-1 opacity-75">Track new orders</li>
         </ul>
-        <button
-          class="bg-gray-900 px-10 text-white text-sm tracking-wider py-3 mt-3 hover:bg-gray-800"
-          type="submit"
-        >CREATE ACCOUNT</button>
+        <nuxt-link :to="{name: 'signup'}">
+          <button
+            class="bg-gray-900 px-10 text-white text-sm tracking-wider py-3 mt-3 hover:bg-gray-800"
+            type="submit"
+          >CREATE ACCOUNT</button>
+        </nuxt-link>
       </div>
     </div>
   </div>

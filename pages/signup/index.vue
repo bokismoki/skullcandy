@@ -2,13 +2,14 @@
   <div class="container mx-auto sign-up" style="margin-top: 68px;">
     <div class="py-10 px-5 sm:max-w-lg sm:mx-auto">
       <h1 class="text-center font-black text-4xl md:text-5xl">SIGN UP</h1>
-      <form>
+      <form @submit.prevent="signup">
         <div class="mt-2">
           <label class="inline-block text-sm cursor-pointer" for="email">Email Address</label>
           <input
             class="border-2 w-full p-2 bg-gray-200 focus:border-gray-500"
             type="email"
             id="email"
+            v-model="email"
           />
         </div>
         <div class="mt-2">
@@ -17,6 +18,7 @@
             class="border-2 w-full p-2 bg-gray-200 focus:border-gray-500"
             type="password"
             id="password"
+            v-model="password"
           />
         </div>
         <div class="mt-2">
@@ -103,6 +105,48 @@
 export default {
   head: {
     title: 'Sign up'
+  },
+  data() {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    async signup() {
+      try {
+        if (this.email.trim() && this.password.trim()) {
+          await this.$axios
+            .post(
+              '/user/signup',
+              {
+                email: this.email,
+                password: this.password
+              },
+              {
+                headers: {
+                  'content-type': 'application/json'
+                }
+              }
+            )
+            .then(async response => {
+              await this.$auth.loginWith('local', {
+                data: {
+                  email: this.email,
+                  password: this.password
+                }
+              })
+
+              this.$router.push({ name: 'index' })
+            })
+            .catch(err => {
+              console.error(err)
+            })
+        }
+      } catch (err) {
+        console.error(err)
+      }
+    }
   }
 }
 </script>

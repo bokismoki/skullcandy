@@ -12,6 +12,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         minlength: 10
+    },
+    created_at: {
+        type: Date,
+        default: Date.now()
     }
 })
 

@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
 
+// Database
 require('./db/mongoose')
 
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -38,3 +39,7 @@ async function start() {
   })
 }
 start()
+
+// Routes
+const userRoutes = require('./routes/user')
+app.use('/api/user', userRoutes)

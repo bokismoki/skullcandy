@@ -8,19 +8,23 @@
           <div class="line w-8 h-1 bg-white my-2" :class="{'bottom_active': menuOpen}"></div>
         </div>
         <div class="lg:flex lg:items-center">
-          <img
-            class="w-40 cursor-pointer lg:mr-5"
-            src="~/assets/img/skullcandy_logo.jpg"
-            alt="Skullcandy Logo"
-          />
+          <nuxt-link class="cursor-pointer lg:mr-5" :to="{name: 'index'}">
+            <img class="w-40" src="~/assets/img/skullcandy_logo.jpg" alt="Skullcandy Logo" />
+          </nuxt-link>
           <a class="hidden lg:inline text-white text-sm mr-5" href="#">SHOP</a>
           <a class="hidden lg:inline text-white text-sm" href="#">12 MOODS</a>
         </div>
         <div class="p-2 cursor-pointer lg:flex lg:items-center">
           <a class="hidden lg:inline text-white text-xs opacity-75 mr-5" href="#">Location</a>
           <a class="hidden lg:inline text-white text-xs opacity-75 mr-5" href="#">Support</a>
-          <img class="hidden lg:inline w-5 mr-5" src="~/assets/img/user.svg" alt="User" />
-          <img class="hidden lg:inline w-5 mr-5" src="~/assets/img/magnifying_glass.svg" alt="Magnifying glass" />
+          <nuxt-link class="hidden lg:inline w-5 mr-5" :to="{name: 'signin'}">
+            <img src="~/assets/img/user.svg" alt="User" />
+          </nuxt-link>
+          <img
+            class="hidden lg:inline w-5 mr-5"
+            src="~/assets/img/magnifying_glass.svg"
+            alt="Magnifying glass"
+          />
           <img class="w-5" src="~/assets/img/cart.svg" alt="Shopping Cart" />
         </div>
       </div>
