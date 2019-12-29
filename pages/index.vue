@@ -25,7 +25,10 @@ import ProductsCarousel from '~/components/ProductsCarousel'
 import PreFooterSection from '~/components/PreFooterSection'
 
 export default {
-  name: 'home',
+  name: 'Home',
+  head: {
+    title: 'Home'
+  },
   components: {
     Hero,
     ProductsCarousel,

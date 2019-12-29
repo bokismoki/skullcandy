@@ -55,6 +55,7 @@
 
 <script>
 export default {
+  name: 'Sign in',
   head: {
     title: 'Sign in'
   }

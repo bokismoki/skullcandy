@@ -18,10 +18,7 @@
             @click="filter = 'speakers'"
             class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1"
           >SPEAKERS</button>
-          <button
-            @click="filter = 'all'"
-            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1"
-          >ALL</button>
+          <button @click="filter = 'all'" class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1">ALL</button>
         </div>
       </div>
       <div class="flex flex-col md:flex-row md:flex-wrap">
@@ -57,6 +54,9 @@
 <script>
 export default {
   name: 'Shop',
+  head: {
+    title: 'Shop'
+  },
   asyncData(context) {
     return context.$axios.get('/products/get').then(products => {
       return {
@@ -69,29 +69,6 @@ export default {
       filter: 'all'
     }
   }
-  // methods: {
-  //   filter(f) {
-  //     switch (f) {
-  //       case 'headphones':
-  //         this.products = this.products
-  //           .slice()
-  //           .filter(product => product.category === 'headphones')
-  //         break
-  //       case 'earbuds':
-  //         this.products = this.products
-  //           .slice()
-  //           .filter(product => product.category === 'earbuds')
-  //         break
-  //       case 'speakers':
-  //         this.products = this.products
-  //           .slice()
-  //           .filter(product => product.category === 'speakers')
-  //         break
-  //       default:
-  //         break
-  //     }
-  //   }
-  // }
 }
 </script>
 
