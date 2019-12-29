@@ -4,16 +4,33 @@
       <h1 class="text-center font-black text-4xl md:text-5xl">SHOP</h1>
       <div class="my-10 md:max-w-lg md:mx-auto">
         <div class="flex flex-col md:flex-row">
-          <button class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1">HEADPHONES</button>
-          <button class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1">EARBUDS</button>
+          <button
+            @click="filter = 'headphones'"
+            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1"
+          >HEADPHONES</button>
+          <button
+            @click="filter = 'earbuds'"
+            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1"
+          >EARBUDS</button>
         </div>
         <div class="flex flex-col md:flex-row">
-          <button class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1">SPEAKERS</button>
-          <button class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1">SALE</button>
+          <button
+            @click="filter = 'speakers'"
+            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1"
+          >SPEAKERS</button>
+          <button
+            @click="filter = 'all'"
+            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1"
+          >ALL</button>
         </div>
       </div>
       <div class="flex flex-col md:flex-row md:flex-wrap">
-        <div class="my-5 md:w-1/2 md:px-1 lg:w-2/6" v-for="product in products" :key="product._id">
+        <div
+          class="my-5 md:w-1/2 md:px-1 lg:w-2/6"
+          v-for="product in products"
+          :key="product._id"
+          v-if="product.category.includes(filter)"
+        >
           <div class="main-image-container cursor-pointer w-5/6 mx-auto">
             <img class="w-full" :src="product['main-image']" />
           </div>
@@ -38,8 +55,6 @@
 </template>
 
 <script>
-import products from '~/server/products.json'
-
 export default {
   name: 'Shop',
   asyncData(context) {
@@ -48,7 +63,35 @@ export default {
         products: products.data
       }
     })
+  },
+  data() {
+    return {
+      filter: 'all'
+    }
   }
+  // methods: {
+  //   filter(f) {
+  //     switch (f) {
+  //       case 'headphones':
+  //         this.products = this.products
+  //           .slice()
+  //           .filter(product => product.category === 'headphones')
+  //         break
+  //       case 'earbuds':
+  //         this.products = this.products
+  //           .slice()
+  //           .filter(product => product.category === 'earbuds')
+  //         break
+  //       case 'speakers':
+  //         this.products = this.products
+  //           .slice()
+  //           .filter(product => product.category === 'speakers')
+  //         break
+  //       default:
+  //         break
+  //     }
+  //   }
+  // }
 }
 </script>
 
