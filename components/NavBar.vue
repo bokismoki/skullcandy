@@ -11,7 +11,7 @@
           <nuxt-link class="cursor-pointer lg:mr-5" :to="{name: 'index'}">
             <img class="w-40" src="~/assets/img/skullcandy_logo.jpg" alt="Skullcandy Logo" />
           </nuxt-link>
-          <a class="hidden lg:inline text-white text-sm mr-5" href="#">SHOP</a>
+          <nuxt-link class="hidden cursor-pointer lg:inline text-white text-sm mr-5" :to="{name: 'shop'}">SHOP</nuxt-link>
           <a class="hidden lg:inline text-white text-sm" href="#">12 MOODS</a>
         </div>
         <div class="p-2 cursor-pointer lg:flex lg:items-center">
@@ -40,7 +40,7 @@
                 class="flex items-center justify-between hover:opacity-75"
                 @click="shopOpen = !shopOpen"
               >
-                <span class="text-sm">SHOP</span>
+                <nuxt-link :to="{name: 'shop'}" class="text-sm">SHOP</nuxt-link>
                 <span>
                   <img
                     class="plus w-5 h-5"
@@ -57,7 +57,7 @@
                       class="flex items-center justify-between hover:opacity-75"
                       @click="headphonesOpen = !headphonesOpen"
                     >
-                      <span class="text-sm">HEADPHONES</span>
+                      <nuxt-link :to="{name: 'shop'}" class="text-sm">HEADPHONES</nuxt-link>
                       <span>
                         <img
                           class="plus w-5 h-5"
@@ -81,7 +81,7 @@
                       class="flex items-center justify-between hover:opacity-75"
                       @click="earbudsOpen = !earbudsOpen"
                     >
-                      <span class="text-sm">EARBUDS</span>
+                      <nuxt-link :to="{name: 'shop'}" class="text-sm">EARBUDS</nuxt-link>
                       <span>
                         <img
                           class="plus w-5 h-5"
@@ -107,7 +107,7 @@
                       class="flex items-center justify-between hover:opacity-75"
                       @click="accessoriesOpen = !accessoriesOpen"
                     >
-                      <span class="text-sm">ACCESSORIES</span>
+                      <nuxt-link :to="{name: 'shop'}" class="text-sm">ACCESSORIES</nuxt-link>
                       <span>
                         <img
                           class="plus w-5 h-5"
@@ -134,7 +134,7 @@
                     @click="specialsOpen = !specialsOpen"
                   >
                     <div class="flex items-center justify-between">
-                      <span class="text-sm">SPECIALS</span>
+                      <nuxt-link :to="{name: 'shop'}" class="text-sm">SPECIALS</nuxt-link>
                       <span>
                         <img
                           class="plus w-5 h-5"

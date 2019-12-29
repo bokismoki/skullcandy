@@ -22,7 +22,7 @@
           class="text-4xl text-white uppercase leading-none font-black sm:text-left sm:text-lg md:text-xl lg:text-3xl"
         >{{h1}}</h1>
         <p class="text-sm text-white my-4 sm:text-left sm:leading-none xl:text-lg">{{p}}</p>
-        <a class="text-sm text-center bg-white w-full block py-3 tracking-wide" href="#">{{button}}</a>
+        <nuxt-link :to="{name: 'shop'}" class="text-sm cursor-pointer text-center bg-white w-full block py-3 tracking-wide">{{button}}</nuxt-link>
       </div>
     </div>
   </section>

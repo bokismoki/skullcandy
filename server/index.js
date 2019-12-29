@@ -43,3 +43,6 @@ start()
 // Routes
 const userRoutes = require('./routes/user')
 app.use('/api/user', userRoutes)
+
+const productsRoutes = require('./routes/products')
+app.use('/api/products', productsRoutes)

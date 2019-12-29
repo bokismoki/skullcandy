@@ -5,19 +5,17 @@
         class="hero-big h-screen sm:w-2/3 sm:hidden"
         :style="'background: url(' + images[0] + ') center/cover no-repeat'"
       >
-        <div
-          class="p-5"
-        >
+        <div class="p-5">
           <h1
             class="text-4xl text-center uppercase leading-none font-black"
           >Golden deals on music feels.</h1>
           <p
             class="text-sm text-center my-4"
           >See what you can score for up to 25% off during our holiday sale.</p>
-          <a
-            class="text-sm text-center text-white bg-gray-900 hover:bg-gray-800 w-full block py-3 tracking-wide"
-            href="#"
-          >SHOP SALE</a>
+          <nuxt-link
+            class="text-sm cursor-pointer text-center text-white bg-gray-900 hover:bg-gray-800 w-full block py-3 tracking-wide"
+            :to="{name: 'shop'}"
+          >SHOP SALE</nuxt-link>
         </div>
       </div>
       <div
@@ -33,10 +31,10 @@
           <p
             class="text-sm text-center my-4 sm:text-left sm:leading-none xl:text-lg"
           >See what you can score for up to 25% off during our holiday sale.</p>
-          <a
-            class="text-sm text-center text-white bg-gray-900 hover:bg-gray-800 w-full block py-3 tracking-wide xl:inline-block xl:w-auto xl:px-5"
-            href="#"
-          >SHOP SALE</a>
+          <nuxt-link
+            class="text-sm cursor-pointer text-center text-white bg-gray-900 hover:bg-gray-800 w-full block py-3 tracking-wide xl:inline-block xl:w-auto xl:px-5"
+            :to="{name: 'shop'}"
+          >SHOP SALE</nuxt-link>
         </div>
       </div>
       <div class="sm:flex sm:flex-col sm:w-1/3">
