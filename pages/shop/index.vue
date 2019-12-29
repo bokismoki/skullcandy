@@ -42,9 +42,12 @@
           </div>
           <div class="mt-2">
             <h1 class="text-center text-sm w-2/3 mx-auto md:w-full md:h-10">{{product.name}}</h1>
-            <h2 class="text-center text-sm">{{product.price}}</h2>
+            <h2 class="text-center text-sm">${{product.price}}</h2>
           </div>
-          <button class="bg-black text-white w-full my-2 py-4 font-black">ADD TO CART</button>
+          <button
+            @click="addItem(product)"
+            class="bg-black text-white w-full my-2 py-4 font-black"
+          >ADD TO CART</button>
         </div>
       </div>
     </div>
@@ -67,6 +70,12 @@ export default {
   data() {
     return {
       filter: 'all'
+    }
+  },
+  methods: {
+    addItem(item) {
+      this.$store.dispatch('addItem', { ...item, quantity: 1 })
+      this.$store.dispatch('toggleIsCartOpen', 1)
     }
   }
 }
