@@ -103,7 +103,7 @@
 
 <script>
 export default {
-  name: 'Sign up',
+  name: 'SignUp',
   head: {
     title: 'Sign up'
   },
