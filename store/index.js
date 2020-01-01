@@ -37,32 +37,99 @@ export const mutations = {
         } else {
             state.isCartOpen = false
         }
+    },
+    INIT_CART_ITEMS: (state, payload) => {
+        state.cartItems = payload
     }
 }
 
 export const actions = {
-    addItem: ({ state, commit, dispatch }, payload) => {
-        // Server code
+    async nuxtServerInit({ rootState, commit }, { $auth, $axios }) {
+        if (rootState.auth.loggedIn) {
+            await $axios.get(`/cart/get/${$auth.$state.user.user_id}`)
+                .then(response => {
+                    if (response.data.items) {
+                        commit('INIT_CART_ITEMS', response.data.items)
+                    }
+                }).catch(err => {
+                    console.error(err)
+                })
+        }
+    },
+    addItem({ state, commit, dispatch }, payload) {
         if (Array(state.cartItems.find(item => item._id === payload._id))[0] === undefined) {
             commit('ADD_ITEM', payload)
         } else {
             dispatch('updateQuantity', { _id: payload._id, change: 1 })
         }
+
+        this.$axios.post(`/cart/updateQuantity/${state.auth.user.user_id}`, {
+            item: payload,
+            action: 'add'
+        }, {
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).catch(err => {
+            console.error(err)
+        })
     },
-    removeItem: ({ commit }, payload) => {
-        // Server code
+    removeItem({ state, commit }, payload) {
         commit('REMOVE_ITEM', payload)
+
+        this.$axios.post(`/cart/updateQuantity/${state.auth.user.user_id}`, {
+            item: payload,
+            action: 'remove'
+        }, {
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).catch(err => {
+            console.error(err)
+        })
     },
-    updateQuantity: ({ state, commit, dispatch }, payload) => {
-        // Server code
+    updateQuantity({ state, commit, dispatch }, payload) {
         if (payload.change === 0) {
             if (state.cartItems.find(item => item._id === payload._id).quantity === 1) {
                 dispatch('removeItem', payload.index)
+
+                this.$axios.post(`/cart/updateQuantity/${state.auth.user.user_id}`, {
+                    item: payload.index,
+                    action: 'remove'
+                }, {
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                }).catch(err => {
+                    console.error(err)
+                })
             } else {
                 commit('UPDATE_QUANTITY', payload)
+
+                this.$axios.post(`/cart/updateQuantity/${state.auth.user.user_id}`, {
+                    item: payload.index,
+                    action: '--'
+                }, {
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                }).catch(err => {
+                    console.error(err)
+                })
             }
         } else {
             commit('UPDATE_QUANTITY', payload)
+
+            this.$axios.post(`/cart/updateQuantity/${state.auth.user.user_id}`, {
+                item: payload.index,
+                action: '++'
+            }, {
+                headers: {
+                    'content-type': 'application/json'
+                }
+            }).catch(err => {
+                console.error(err)
+            })
         }
     },
     toggleIsCartOpen: ({ commit }, payload) => {

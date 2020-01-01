@@ -11,7 +11,7 @@
           style="color: crimson;"
         >&times;</div>
         <div
-          @click="updateQuantity(1, item._id)"
+          @click="updateQuantity(1, item._id, index)"
           class="cursor-pointer text-green-900 text-xl ml-5"
         >&#9651;</div>
         <div
@@ -35,7 +35,7 @@ export default {
     },
     updateQuantity(change, _id, index) {
       if (change === 1) {
-        this.$store.dispatch('updateQuantity', { change, _id })
+        this.$store.dispatch('updateQuantity', { change, _id, index })
       } else {
         this.$store.dispatch('updateQuantity', { change, _id, index })
       }
