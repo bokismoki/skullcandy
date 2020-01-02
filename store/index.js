@@ -134,5 +134,8 @@ export const actions = {
     },
     toggleIsCartOpen: ({ commit }, payload) => {
         commit('TOGGLE_IS_CART_OPEN', payload)
+    },
+    initCartItems: ({ commit }, payload) => {
+        commit('INIT_CART_ITEMS', payload)
     }
 }

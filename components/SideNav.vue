@@ -173,7 +173,19 @@
           </ul>
         </div>
       </li>
-      <nuxt-link :to="{name: 'signin'}">
+      <li
+        v-if="$auth.loggedIn"
+        class="flex items-center border-t-2 p-3 border-gray-700 cursor-pointer"
+      >
+        <img
+          @click="logout"
+          class="lg:inline w-5 h-5 mr-5"
+          src="~/assets/img/logout.svg"
+          alt="Logout"
+        />
+        <span class="text-xs text-gray-500">Logout</span>
+      </li>
+      <nuxt-link v-if="!$auth.loggedIn" :to="{name: 'signin'}">
         <li class="flex items-center border-t-2 p-3 border-gray-700 cursor-pointer">
           <img class="w-5 mr-5" src="~/assets/img/user.svg" alt="User" />
           <span class="text-xs text-gray-500">Account</span>
@@ -200,6 +212,13 @@ export default {
       earbudsOpen: false,
       accessoriesOpen: false,
       specialsOpen: false
+    }
+  },
+  methods: {
+    logout() {
+      this.$auth.logout().then(() => {
+        this.$store.dispatch('toggleIsCartOpen', 0)
+      })
     }
   }
 }

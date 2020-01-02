@@ -20,7 +20,18 @@
         <div class="p-2 cursor-pointer lg:flex lg:items-center">
           <a class="hidden lg:inline text-white text-xs opacity-75 mr-5" href="#">Location</a>
           <a class="hidden lg:inline text-white text-xs opacity-75 mr-5" href="#">Support</a>
-          <nuxt-link class="hidden lg:inline w-5 mr-5" :to="{name: 'signin'}">
+          <img
+            v-if="$auth.loggedIn"
+            @click="logout"
+            class="hidden lg:inline w-5 h-5 mr-5"
+            src="~/assets/img/logout.svg"
+            alt="Logout"
+          />
+          <nuxt-link
+            v-if="!$auth.loggedIn"
+            class="hidden lg:inline w-5 mr-5"
+            :to="{name: 'signin'}"
+          >
             <img src="~/assets/img/user.svg" alt="User" />
           </nuxt-link>
           <img
@@ -29,6 +40,7 @@
             alt="Magnifying glass"
           />
           <img
+            v-if="$auth.loggedIn"
             @click="toggleIsCartOpen"
             class="w-5"
             src="~/assets/img/cart.svg"
@@ -70,6 +82,11 @@ export default {
       } else {
         this.$store.dispatch('toggleIsCartOpen', 1)
       }
+    },
+    logout() {
+      this.$auth.logout().then(() => {
+        this.$store.dispatch('toggleIsCartOpen', 0)
+      })
     }
   }
 }

@@ -3,13 +3,14 @@
     <div class="py-10 px-5 md:flex md:justify-between md:items-start md:px-10 md:py-16 lg:py-24">
       <div class="md:w-1/2 md:mr-10">
         <h1 class="text-center font-black text-4xl md:text-left md:text-5xl">SIGN IN</h1>
-        <form>
+        <form @submit.prevent="signin">
           <div>
             <label class="inline-block text-sm cursor-pointer" for="email">Email Address:</label>
             <input
               class="border-2 w-full p-2 bg-gray-200 focus:border-gray-500"
               type="email"
               id="email"
+              v-model="user.email"
             />
           </div>
           <div class="mt-2 lg:mt-5">
@@ -18,6 +19,7 @@
               class="border-2 w-full p-2 bg-gray-200 focus:border-gray-500"
               type="password"
               id="password"
+              v-model="user.password"
             />
           </div>
           <div class="mt-2 flex items-center lg:mt-5">
@@ -56,8 +58,53 @@
 <script>
 export default {
   name: 'SignIn',
+  middleware: ['isAuth'],
   head: {
     title: 'Sign in'
+  },
+  data() {
+    return {
+      user: {
+        email: '',
+        password: ''
+      }
+    }
+  },
+  methods: {
+    async signin() {
+      if (this.user.email.trim() && this.user.password.trim()) {
+        await this.$axios
+          .post('/user/signin', this.user, {
+            headers: {
+              'content-type': 'application/json'
+            }
+          })
+          .then(async response => {
+            await this.$auth.loginWith('local', {
+              data: {
+                email: this.user.email,
+                password: this.user.password
+              }
+            })
+          })
+          .catch(err => {
+            console.error(err)
+          })
+        await this.$axios
+          .get(`/cart/get/${this.$auth.user.user_id}`)
+          .then(response => {
+            if (response.data.items) {
+              this.$store.dispatch('initCartItems', response.data.items)
+            } else {
+              this.$store.dispatch('initCartItems', [])
+            }
+            this.$router.push({ name: 'index' })
+          })
+          .catch(err => {
+            console.error(err)
+          })
+      }
+    }
   }
 }
 </script>

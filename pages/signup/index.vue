@@ -104,6 +104,7 @@
 <script>
 export default {
   name: 'SignUp',
+  middleware: ['isAuth'],
   head: {
     title: 'Sign up'
   },
@@ -137,7 +138,6 @@ export default {
                   password: this.password
                 }
               })
-
               this.$router.push({ name: 'index' })
             })
             .catch(err => {

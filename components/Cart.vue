@@ -17,6 +17,7 @@
       </div>
       <button
         class="text-white text-center text-xl w-full mb-5 font-semibold py-2 mt-2 bg-blue-700"
+        @click="checkout"
       >CHECKOUT</button>
     </div>
     <h1 class="uppercase text-sm font-black" v-else>No items in the cart</h1>
@@ -34,6 +35,11 @@ export default {
   },
   computed: {
     ...mapGetters(['cartItems', 'cartLength', 'totalPrice', 'isCartOpen'])
+  },
+  methods: {
+    checkout() {
+      // checkout
+    }
   }
 }
 </script>
