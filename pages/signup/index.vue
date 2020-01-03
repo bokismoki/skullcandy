@@ -9,7 +9,7 @@
             class="border-2 w-full p-2 bg-gray-200 focus:border-gray-500"
             type="email"
             id="email"
-            v-model="email"
+            v-model="user.email"
           />
         </div>
         <div class="mt-2">
@@ -18,7 +18,7 @@
             class="border-2 w-full p-2 bg-gray-200 focus:border-gray-500"
             type="password"
             id="password"
-            v-model="password"
+            v-model="user.password"
           />
         </div>
         <div class="mt-2">
@@ -110,33 +110,25 @@ export default {
   },
   data() {
     return {
-      email: '',
-      password: ''
+      user: {
+        email: '',
+        password: ''
+      }
     }
   },
   methods: {
     async signup() {
       try {
-        if (this.email.trim() && this.password.trim()) {
+        if (this.user.email.trim() && this.user.password.trim()) {
           await this.$axios
-            .post(
-              '/user/signup',
-              {
-                email: this.email,
-                password: this.password
-              },
-              {
-                headers: {
-                  'content-type': 'application/json'
-                }
+            .post('/user/signup', this.user, {
+              headers: {
+                'content-type': 'application/json'
               }
-            )
+            })
             .then(async response => {
               await this.$auth.loginWith('local', {
-                data: {
-                  email: this.email,
-                  password: this.password
-                }
+                data: this.user
               })
               this.$router.push({ name: 'index' })
             })

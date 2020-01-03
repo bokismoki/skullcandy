@@ -41,7 +41,7 @@ exports.updateQuantity = async (req, res) => {
                 items: [item],
                 user_id
             })
-            await cartInstance.save()
+            const createdCart = await cartInstance.save()
         }
     } catch (err) {
         console.error(err)

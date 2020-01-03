@@ -34,7 +34,7 @@ export default {
       this.$store.dispatch('removeItem', index)
     },
     updateQuantity(change, _id, index) {
-      if (change === 1) {
+      if (change) {
         this.$store.dispatch('updateQuantity', { change, _id, index })
       } else {
         this.$store.dispatch('updateQuantity', { change, _id, index })

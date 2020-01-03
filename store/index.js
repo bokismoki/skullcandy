@@ -11,9 +11,6 @@ export const getters = {
             return acc += item.price * item.quantity
         }, 0)
     },
-    isInCart: state => payload => {
-        return state.cartItems.find(item => item._id = payload)
-    },
     isCartOpen: state => state.isCartOpen
 }
 
@@ -25,14 +22,14 @@ export const mutations = {
         state.cartItems.splice(payload, 1)
     },
     UPDATE_QUANTITY: (state, payload) => {
-        if (payload.change === 1) {
+        if (payload.change) {
             state.cartItems.find(item => item._id === payload._id).quantity++
         } else {
             state.cartItems.find(item => item._id === payload._id).quantity--
         }
     },
     TOGGLE_IS_CART_OPEN: (state, payload) => {
-        if (payload === 1) {
+        if (payload) {
             state.isCartOpen = true
         } else {
             state.isCartOpen = false

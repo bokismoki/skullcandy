@@ -81,10 +81,7 @@ export default {
           })
           .then(async response => {
             await this.$auth.loginWith('local', {
-              data: {
-                email: this.user.email,
-                password: this.user.password
-              }
+              data: this.user
             })
           })
           .catch(err => {

@@ -63,7 +63,7 @@ exports.signin = async (req, res) => {
 
 exports.delete = async (req, res) => {
     try {
-        const user_id = req.body.id
+        const user_id = req.params.id
         const isValidID = await User.findOne({ _id: user_id })
         if (isValidID) {
             const deletedUser = await User.findByIdAndDelete({ _id: user_id })
