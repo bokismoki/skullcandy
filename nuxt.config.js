@@ -28,6 +28,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/notifications-ssr', mode: 'server' },
+    { src: '~/plugins/notifications-client', mode: 'client' }
   ],
   /*
   ** Nuxt.js dev-modules
