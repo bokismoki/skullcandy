@@ -18,23 +18,23 @@ exports.get = async (req, res) => {
 exports.updateQuantity = async (req, res) => {
     try {
         const user_id = req.params.id
-        const { item, action } = req.body
+        const { item, action, index } = req.body
         const cart = await Cart.findOne({ user_id })
         if (cart) {
             if (action === 'add') {
                 cart.items.push(item)
-                cart.save()
+                await cart.save()
+                res.send({ msg: 'Successfully added new item to the cart' })
             } else if (action === '++') {
-                // FIX
-                cart.items[item].quantity += 1
-                cart.save()
+                const cart = await Cart.findOneAndUpdate({ user_id }, { $inc: { [`items.${index}.quantity`]: 1 } })
+                res.send({ msg: 'Successfully updated cart' })
             } else if (action === '--') {
-                // FIX
-                cart.items[item].quantity -= 1
-                cart.save()
+                const cart = await Cart.findOneAndUpdate({ user_id }, { $inc: { [`items.${index}.quantity`]: -1 } })
+                res.send({ msg: 'Successfully updated cart' })
             } else if (action === 'remove') {
                 cart.items.splice(item, 1)
-                cart.save()
+                await cart.save()
+                res.send({ msg: 'Successfully removed the item from the cart' })
             }
         } else {
             const cartInstance = new Cart({
@@ -42,6 +42,7 @@ exports.updateQuantity = async (req, res) => {
                 user_id
             })
             const createdCart = await cartInstance.save()
+            res.send({ msg: 'Successfully created cart' })
         }
     } catch (err) {
         console.error(err)

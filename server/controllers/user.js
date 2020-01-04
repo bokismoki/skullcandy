@@ -1,4 +1,5 @@
 const User = require('../models/User')
+const Cart = require('../models/Cart')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
@@ -67,6 +68,7 @@ exports.delete = async (req, res) => {
         const isValidID = await User.findOne({ _id: user_id })
         if (isValidID) {
             const deletedUser = await User.findByIdAndDelete({ _id: user_id })
+            const usersCart = await Cart.findOneAndDelete({ user_id })
             res.send({ msg: 'User successfully deleted' })
         } else {
             res.send({ err: 'Error while deleting the user' })

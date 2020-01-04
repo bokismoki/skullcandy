@@ -1,27 +1,29 @@
 <template>
   <div class="flex items-center">
+    <img class="mr-5" :src="item['main-image']" style="width: 200px;" />
     <div class="w-1/2 md:w-auto">
       <h1 class="text-sm font-semibold lg:text-base">{{item.name}}</h1>
-      <p class="text-sm font-semibold lg:text-base">Q: {{item.quantity}}</p>
       <p class="text-sm font-semibold lg:text-base">${{item.price}}</p>
-      <div class="flex items-center">
-        <div
-          @click="removeItem(index)"
-          class="cursor-pointer text-4xl"
-          style="color: crimson;"
-        >&times;</div>
-        <div
-          @click="updateQuantity(1, item._id, index)"
-          class="cursor-pointer text-green-900 text-xl ml-5"
-        >&#9651;</div>
-        <div
-          @click="updateQuantity(0, item._id, index)"
-          class="cursor-pointer text-xl ml-2"
-          style="color: crimson;"
-        >&#9661;</div>
+      <div
+        @click="removeItem(index)"
+        class="cursor-pointer text-xs font-bold tracking-wide"
+        style="color: crimson;"
+      >REMOVE</div>
+      <div class="flex items-center mt-2">
+        <p class="text-sm font-semibold lg:text-base">Q: {{item.quantity}}</p>
+        <div class="flex flex-col items-center ml-5">
+          <div
+            @click="updateQuantity(1, item._id, index)"
+            class="cursor-pointer text-green-900 text-xl"
+          >&#9651;</div>
+          <div
+            @click="updateQuantity(0, item._id, index)"
+            class="cursor-pointer text-xl"
+            style="color: crimson;"
+          >&#9661;</div>
+        </div>
       </div>
     </div>
-    <img :src="item['main-image']" style="width: 200px;" />
   </div>
 </template>
 

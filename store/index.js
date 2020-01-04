@@ -56,27 +56,29 @@ export const actions = {
     addItem({ state, commit, dispatch }, payload) {
         if (Array(state.cartItems.find(item => item._id === payload._id))[0] === undefined) {
             commit('ADD_ITEM', payload)
+
+            this.$axios.post(`/cart/updateQuantity/${state.auth.user.user_id}`, {
+                action: 'add',
+                item: payload
+            }, {
+                headers: {
+                    'content-type': 'application/json'
+                }
+            }).catch(err => {
+                console.error(err)
+            })
         } else {
-            dispatch('updateQuantity', { _id: payload._id, change: 1 })
+            const index = state.cartItems.findIndex(item => item._id === payload._id)
+            dispatch('updateQuantity', { _id: payload._id, change: 1, index })
         }
 
-        this.$axios.post(`/cart/updateQuantity/${state.auth.user.user_id}`, {
-            item: payload,
-            action: 'add'
-        }, {
-            headers: {
-                'content-type': 'application/json'
-            }
-        }).catch(err => {
-            console.error(err)
-        })
     },
     removeItem({ state, commit }, payload) {
         commit('REMOVE_ITEM', payload)
 
         this.$axios.post(`/cart/updateQuantity/${state.auth.user.user_id}`, {
-            item: payload,
-            action: 'remove'
+            action: 'remove',
+            item: payload
         }, {
             headers: {
                 'content-type': 'application/json'
@@ -89,23 +91,13 @@ export const actions = {
         if (payload.change === 0) {
             if (state.cartItems.find(item => item._id === payload._id).quantity === 1) {
                 dispatch('removeItem', payload.index)
-
-                this.$axios.post(`/cart/updateQuantity/${state.auth.user.user_id}`, {
-                    item: payload.index,
-                    action: 'remove'
-                }, {
-                    headers: {
-                        'content-type': 'application/json'
-                    }
-                }).catch(err => {
-                    console.error(err)
-                })
             } else {
                 commit('UPDATE_QUANTITY', payload)
 
                 this.$axios.post(`/cart/updateQuantity/${state.auth.user.user_id}`, {
-                    item: payload.index,
-                    action: '--'
+                    action: '--',
+                    item: payload._id,
+                    index: payload.index
                 }, {
                     headers: {
                         'content-type': 'application/json'
@@ -118,8 +110,9 @@ export const actions = {
             commit('UPDATE_QUANTITY', payload)
 
             this.$axios.post(`/cart/updateQuantity/${state.auth.user.user_id}`, {
-                item: payload.index,
-                action: '++'
+                action: '++',
+                item: payload._id,
+                index: payload.index
             }, {
                 headers: {
                     'content-type': 'application/json'
