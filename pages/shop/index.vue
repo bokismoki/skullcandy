@@ -7,18 +7,25 @@
           <button
             @click="filter = 'headphones'"
             class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1"
+            :class="{'active': filter === 'headphones'}"
           >HEADPHONES</button>
           <button
             @click="filter = 'earbuds'"
             class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1"
+            :class="{'active': filter === 'earbuds'}"
           >EARBUDS</button>
         </div>
         <div class="flex flex-col md:flex-row">
           <button
             @click="filter = 'speakers'"
             class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1"
+            :class="{'active': filter === 'speakers'}"
           >SPEAKERS</button>
-          <button @click="filter = 'all'" class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1">ALL</button>
+          <button
+            @click="filter = 'all'"
+            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1"
+            :class="{'active': filter === 'all'}"
+          >ALL</button>
         </div>
       </div>
       <div class="flex flex-col md:flex-row md:flex-wrap">
@@ -67,6 +74,10 @@ export default {
 }
 .shop .main-image-container:hover {
   transform: scale(1.02);
+}
+
+.shop button.active {
+  @apply bg-gray-500;
 }
 
 @media (min-width: 1024px) {

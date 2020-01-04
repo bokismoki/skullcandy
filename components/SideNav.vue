@@ -183,7 +183,7 @@
           src="~/assets/img/logout.svg"
           alt="Logout"
         />
-        <span class="text-xs text-gray-500">Logout</span>
+        <span class="text-xs text-gray-500" @click="logout">Logout</span>
       </li>
       <nuxt-link v-if="!$auth.loggedIn" :to="{name: 'signin'}">
         <li class="flex items-center border-t-2 p-3 border-gray-700 cursor-pointer">

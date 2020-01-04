@@ -37,18 +37,30 @@
       </div>
     </div>
     <div class="products hidden sm:flex" style="background-color: #1d1d1d;">
-      <div
-        class="w-1/3 cursor-pointer"
-        :style="'background: url(' + images[0] + ') center/contain no-repeat'"
-      ></div>
-      <div
-        class="w-1/3 cursor-pointer"
-        :style="'background: url(' + images[1] + ') center/contain no-repeat'"
-      ></div>
-      <div
-        class="w-1/3 cursor-pointer"
-        :style="'background: url(' + images[2] + ') center/contain no-repeat'"
-      ></div>
+      <nuxt-link class="w-1/3 relative" :to="{name: 'shop'}">
+        <div
+          @mouseenter="changeBg(0)"
+          @mouseleave="defaultBg(0)"
+          class="w-full h-full absolute"
+          :style="'background: url(' + images[0] + ') center/contain no-repeat'"
+        ></div>
+      </nuxt-link>
+      <nuxt-link class="w-1/3 relative" :to="{name: 'shop'}">
+        <div
+          @mouseenter="changeBg(1)"
+          @mouseleave="defaultBg(1)"
+          class="w-full h-full absolute"
+          :style="'background: url(' + images[1] + ') center/contain no-repeat'"
+        ></div>
+      </nuxt-link>
+      <nuxt-link class="w-1/3 relative" :to="{name: 'shop'}">
+        <div
+          @mouseenter="changeBg(2)"
+          @mouseleave="defaultBg(2)"
+          class="w-full h-full absolute"
+          :style="'background: url(' + images[2] + ') center/contain no-repeat'"
+        ></div>
+      </nuxt-link>
     </div>
   </section>
 </template>
@@ -63,6 +75,11 @@ export default {
         require('~/assets/img/crusher_headphones.jpg'),
         require('~/assets/img/push_earbuds.jpg'),
         require('~/assets/img/venue_headphones.jpg')
+      ],
+      hoverImages: [
+        require('~/assets/img/carousel_person_1.jpg'),
+        require('~/assets/img/carousel_person_2.jpg'),
+        require('~/assets/img/carousel_person_3.jpg')
       ]
     }
   },
@@ -79,6 +96,14 @@ export default {
         }
         this.currentSlide++
       }
+    },
+    changeBg(index) {
+      event.target.style.background =
+        'url(' + this.hoverImages[index] + ') center/contain no-repeat'
+    },
+    defaultBg(index) {
+      event.target.style.background =
+        'url(' + this.images[index] + ') center/contain no-repeat'
     }
   }
 }

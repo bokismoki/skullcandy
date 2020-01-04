@@ -12,14 +12,14 @@
             <img class="w-40" src="~/assets/img/skullcandy_logo.jpg" alt="Skullcandy Logo" />
           </nuxt-link>
           <nuxt-link
-            class="hidden cursor-pointer lg:inline text-white text-sm mr-5"
+            class="hidden cursor-pointer lg:inline text-white text-sm mr-5 pseudo"
             :to="{name: 'shop'}"
           >SHOP</nuxt-link>
-          <a class="hidden lg:inline text-white text-sm" href="#">12 MOODS</a>
+          <a class="hidden lg:inline text-white text-sm pseudo" href="#">12 MOODS</a>
         </div>
         <div class="p-2 cursor-pointer lg:flex lg:items-center">
-          <a class="hidden lg:inline text-white text-xs opacity-75 mr-5" href="#">Location</a>
-          <a class="hidden lg:inline text-white text-xs opacity-75 mr-5" href="#">Support</a>
+          <a class="hidden lg:inline text-white text-xs opacity-75 mr-5 pseudo" href="#">Location</a>
+          <a class="hidden lg:inline text-white text-xs opacity-75 mr-5 pseudo" href="#">Support</a>
           <img
             v-if="$auth.loggedIn"
             @click="logout"
@@ -97,24 +97,20 @@ export default {
 .nav-slide-leave-to {
   left: -100%;
 }
-.nav-slide-enter-to,
-.nav-slide-leave {
-  left: 0px;
-}
 .nav-slide-enter-active,
 .nav-slide-leave-active {
   transition: left 500ms;
 }
 
 .hamburger_menu .line {
-  position: relative;
+  @apply relative;
   transition: all 500ms;
 }
 .hamburger_menu .line:first-of-type {
-  top: 0;
+  @apply top-0;
 }
 .hamburger_menu .line:last-of-type {
-  bottom: 0;
+  @apply bottom-0;
 }
 .hamburger_menu .line.top_active {
   top: 12px;
@@ -123,5 +119,33 @@ export default {
 .hamburger_menu .line.bottom_active {
   bottom: 12px;
   transform: rotate(-45deg);
+}
+
+.pseudo {
+  position: relative;
+}
+.pseudo::before,
+.pseudo::after {
+  position: absolute;
+  content: '';
+  background-color: #fff;
+  width: 0%;
+  height: 1px;
+  bottom: 0;
+  transition: width 250ms;
+}
+.pseudo::before {
+  left: 0%;
+}
+.pseudo:hover::before {
+  width: 50%;
+  left: 0%;
+}
+.pseudo::after {
+  right: 0%;
+}
+.pseudo:hover::after {
+  width: 50%;
+  right: 0%;
 }
 </style>
