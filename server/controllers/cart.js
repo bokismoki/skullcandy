@@ -27,10 +27,10 @@ exports.updateQuantity = async (req, res) => {
                 res.send({ msg: 'Successfully added new item to the cart' })
             } else if (action === '++') {
                 const cart = await Cart.findOneAndUpdate({ user_id }, { $inc: { [`items.${index}.quantity`]: 1 } })
-                res.send({ msg: 'Successfully updated cart' })
+                res.send({ msg: 'Successfully updated the cart' })
             } else if (action === '--') {
                 const cart = await Cart.findOneAndUpdate({ user_id }, { $inc: { [`items.${index}.quantity`]: -1 } })
-                res.send({ msg: 'Successfully updated cart' })
+                res.send({ msg: 'Successfully updated the cart' })
             } else if (action === 'remove') {
                 cart.items.splice(item, 1)
                 await cart.save()

@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 export const state = () => ({
     cartItems: [],
     isCartOpen: false
@@ -50,6 +52,12 @@ export const actions = {
                     }
                 }).catch(err => {
                     console.error(err)
+                    Vue.notify({
+                        group: 'notification',
+                        title: 'Error caught:',
+                        type: 'error',
+                        text: 'Couldn\'t fetch cartItems from the database'
+                    })
                 })
         }
     },
@@ -64,8 +72,31 @@ export const actions = {
                 headers: {
                     'content-type': 'application/json'
                 }
+            }).then(response => {
+                const { msg, err } = response.data
+                if (msg) {
+                    Vue.notify({
+                        group: 'notification',
+                        title: 'Cart status:',
+                        type: 'success',
+                        text: msg
+                    })
+                } else {
+                    Vue.notify({
+                        group: 'notification',
+                        title: 'Cart status:',
+                        type: 'error',
+                        text: err
+                    })
+                }
             }).catch(err => {
                 console.error(err)
+                Vue.notify({
+                    group: 'notification',
+                    title: 'Error caught:',
+                    type: 'error',
+                    text: 'Couldn\'t add the cart item to the database'
+                })
             })
         } else {
             const index = state.cartItems.findIndex(item => item._id === payload._id)
@@ -83,8 +114,31 @@ export const actions = {
             headers: {
                 'content-type': 'application/json'
             }
+        }).then(response => {
+            const { msg, err } = response.data
+            if (msg) {
+                Vue.notify({
+                    group: 'notification',
+                    title: 'Cart status:',
+                    type: 'success',
+                    text: msg
+                })
+            } else {
+                Vue.notify({
+                    group: 'notification',
+                    title: 'Cart status:',
+                    type: 'error',
+                    text: err
+                })
+            }
         }).catch(err => {
             console.error(err)
+            Vue.notify({
+                group: 'notification',
+                title: 'Error caught:',
+                type: 'error',
+                text: 'Couldn\'t remove the cart item from the database'
+            })
         })
     },
     updateQuantity({ state, commit, dispatch }, payload) {
@@ -102,8 +156,31 @@ export const actions = {
                     headers: {
                         'content-type': 'application/json'
                     }
+                }).then(response => {
+                    const { msg, err } = response.data
+                    if (msg) {
+                        Vue.notify({
+                            group: 'notification',
+                            title: 'Cart status:',
+                            type: 'success',
+                            text: msg
+                        })
+                    } else {
+                        Vue.notify({
+                            group: 'notification',
+                            title: 'Cart status:',
+                            type: 'error',
+                            text: err
+                        })
+                    }
                 }).catch(err => {
                     console.error(err)
+                    Vue.notify({
+                        group: 'notification',
+                        title: 'Error caught:',
+                        type: 'error',
+                        text: 'Couldn\'t update the item in the database'
+                    })
                 })
             }
         } else {
@@ -117,8 +194,31 @@ export const actions = {
                 headers: {
                     'content-type': 'application/json'
                 }
+            }).then(response => {
+                const { msg, err } = response.data
+                if (msg) {
+                    Vue.notify({
+                        group: 'notification',
+                        title: 'Cart status:',
+                        type: 'success',
+                        text: msg
+                    })
+                } else {
+                    Vue.notify({
+                        group: 'notification',
+                        title: 'Cart status:',
+                        type: 'error',
+                        text: err
+                    })
+                }
             }).catch(err => {
                 console.error(err)
+                Vue.notify({
+                    group: 'notification',
+                    title: 'Error caught:',
+                    type: 'error',
+                    text: 'Couldn\'t update the item in the database'
+                })
             })
         }
     },

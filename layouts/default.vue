@@ -1,5 +1,6 @@
 <template>
   <div>
+    <notifications group="notification" />
     <NavBar />
     <nuxt />
     <Footer />
