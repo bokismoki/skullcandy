@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="main-image-container cursor-pointer w-5/6 mx-auto">
-      <img class="w-full" :src="product['main-image']" />
+      <img class="w-full" :src="product['main-image']" alt="Item's main image" />
     </div>
     <div class="flex items-center justify-center">
       <div
@@ -9,7 +9,7 @@
         v-for="(image, index) in product['small-images']"
         :key="index"
       >
-        <img class="w-10" :src="image" />
+        <img class="w-10" :src="image" alt="Item's small image" />
       </div>
     </div>
     <div class="mt-2">

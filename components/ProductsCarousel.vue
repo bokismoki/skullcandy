@@ -51,6 +51,7 @@
             class="w-full h-full object-contain hover:opacity-0"
             :src="images[index]"
             style="background-color: #1d1d1d;"
+            alt="Product Image"
           />
         </div>
       </nuxt-link>

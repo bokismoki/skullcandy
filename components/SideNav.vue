@@ -192,8 +192,10 @@
         </li>
       </nuxt-link>
       <li class="flex items-center border-t-2 p-3 border-gray-700">
-        <img class="w-5 mr-5" src="~/assets/img/magnifying_glass.svg" alt="Magnifying glass" />
-        <input class="text-xs bg-transparent w-full" type="text" placeholder="Search" />
+        <label for="search">
+          <img class="w-5 mr-5" src="~/assets/img/magnifying_glass.svg" alt="Magnifying glass" />
+        </label>
+        <input id="search" class="text-xs bg-transparent w-full p-1" type="text" placeholder="Search" />
       </li>
     </ul>
   </div>

@@ -1,11 +1,13 @@
 import Vue from 'vue'
 
 export const state = () => ({
+    products: [],
     cartItems: [],
     isCartOpen: false
 })
 
 export const getters = {
+    products: state => state.products,
     cartItems: state => state.cartItems,
     cartLength: state => state.cartItems.length,
     totalPrice: state => {
@@ -17,6 +19,9 @@ export const getters = {
 }
 
 export const mutations = {
+    SET_PRODUCTS: (state, payload) => {
+        state.products = payload
+    },
     ADD_ITEM: (state, payload) => {
         state.cartItems.push(payload)
     },
@@ -44,6 +49,18 @@ export const mutations = {
 
 export const actions = {
     async nuxtServerInit({ rootState, commit }, { $auth, $axios }) {
+        await $axios.get('/products/get')
+            .then(response => {
+                commit('SET_PRODUCTS', response.data)
+            }).catch(err => {
+                console.error(err)
+                Vue.notify({
+                    group: 'notification',
+                    title: 'Error caught:',
+                    type: 'error',
+                    text: 'Couldn\'t fetch products'
+                })
+            })
         if (rootState.auth.loggedIn) {
             await $axios.get(`/cart/get/${$auth.$state.user.user_id}`)
                 .then(response => {
@@ -67,10 +84,12 @@ export const actions = {
 
             this.$axios.post(`/cart/updateQuantity/${state.auth.user.user_id}`, {
                 action: 'add',
-                item: payload
+                item: payload,
+                user_id: this.$auth.user.user_id
             }, {
                 headers: {
-                    'content-type': 'application/json'
+                    'content-type': 'application/json',
+                    'authorization': localStorage.getItem('auth._token.local')
                 }
             }).then(response => {
                 const { msg, err } = response.data
@@ -100,7 +119,9 @@ export const actions = {
             })
         } else {
             const index = state.cartItems.findIndex(item => item._id === payload._id)
-            dispatch('updateQuantity', { _id: payload._id, change: 1, index })
+            dispatch('updateQuantity', {
+                _id: payload._id, change: 1, index
+            })
         }
 
     },
@@ -109,10 +130,12 @@ export const actions = {
 
         this.$axios.post(`/cart/updateQuantity/${state.auth.user.user_id}`, {
             action: 'remove',
-            item: payload
+            item: payload,
+            user_id: this.$auth.user.user_id
         }, {
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'authorization': localStorage.getItem('auth._token.local')
             }
         }).then(response => {
             const { msg, err } = response.data
@@ -151,10 +174,12 @@ export const actions = {
                 this.$axios.post(`/cart/updateQuantity/${state.auth.user.user_id}`, {
                     action: '--',
                     item: payload._id,
-                    index: payload.index
+                    index: payload.index,
+                    user_id: this.$auth.user.user_id
                 }, {
                     headers: {
-                        'content-type': 'application/json'
+                        'content-type': 'application/json',
+                        'authorization': localStorage.getItem('auth._token.local')
                     }
                 }).then(response => {
                     const { msg, err } = response.data
@@ -189,10 +214,12 @@ export const actions = {
             this.$axios.post(`/cart/updateQuantity/${state.auth.user.user_id}`, {
                 action: '++',
                 item: payload._id,
-                index: payload.index
+                index: payload.index,
+                user_id: this.$auth.user.user_id
             }, {
                 headers: {
-                    'content-type': 'application/json'
+                    'content-type': 'application/json',
+                    'authorization': localStorage.getItem('auth._token.local')
                 }
             }).then(response => {
                 const { msg, err } = response.data

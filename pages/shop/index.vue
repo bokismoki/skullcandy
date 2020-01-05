@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import ProductItem from '~/components/ProductItem'
 
 export default {
@@ -53,17 +54,13 @@ export default {
   components: {
     ProductItem
   },
-  asyncData(context) {
-    return context.$axios.get('/products/get').then(products => {
-      return {
-        products: products.data
-      }
-    })
-  },
   data() {
     return {
       filter: 'all'
     }
+  },
+  computed: {
+    ...mapGetters(['products'])
   }
 }
 </script>

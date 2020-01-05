@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center">
-    <img class="mr-5" :src="item['main-image']" style="width: 200px;" />
+    <img class="mr-5" :src="item['main-image']" style="width: 200px;" alt="Item's main image" />
     <div class="w-1/2 md:w-auto">
       <h1 class="text-sm font-semibold lg:text-base">{{item.name}}</h1>
       <p class="text-sm font-semibold lg:text-base">${{item.price}}</p>
