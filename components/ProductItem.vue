@@ -29,12 +29,27 @@ export default {
   props: ['product'],
   methods: {
     addItem(item) {
-      this.$store.dispatch('addItem', { ...item, quantity: 1 })
-      this.$store.dispatch('toggleIsCartOpen', 1)
+      if (this.$auth.loggedIn) {
+        this.$store.dispatch('addItem', { ...item, quantity: 1 })
+        this.$store.dispatch('toggleIsCartOpen', 1)
+      } else {
+        this.$notify({
+          group: 'notification',
+          title: 'Error caught:',
+          type: 'error',
+          text: 'Please sign in in order to make a purchase'
+        })
+      }
     }
   }
 }
 </script>
 
 <style scoped>
+.shop .main-image-container {
+  transition: transform 250ms;
+}
+.shop .main-image-container:hover {
+  transform: scale(1.02);
+}
 </style>

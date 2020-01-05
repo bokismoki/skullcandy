@@ -42,7 +42,7 @@ exports.updateQuantity = async (req, res) => {
                 user_id
             })
             const createdCart = await cartInstance.save()
-            res.send({ msg: 'Successfully created cart' })
+            res.status(201).send({ msg: 'Successfully created cart' })
         }
     } catch (err) {
         console.error(err)

@@ -69,13 +69,6 @@ export default {
 </script>
 
 <style scoped>
-.shop .main-image-container {
-  transition: transform 250ms;
-}
-.shop .main-image-container:hover {
-  transform: scale(1.02);
-}
-
 .shop button.active {
   @apply bg-gray-500;
 }

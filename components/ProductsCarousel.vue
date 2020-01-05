@@ -37,29 +37,22 @@
       </div>
     </div>
     <div class="products hidden sm:flex" style="background-color: #1d1d1d;">
-      <nuxt-link class="w-1/3 relative" :to="{name: 'shop'}">
+      <nuxt-link
+        v-for="(product, index) in 3"
+        :key="index"
+        class="w-1/3 relative"
+        :to="{name: 'shop'}"
+      >
         <div
-          @mouseenter="changeBg(0)"
-          @mouseleave="defaultBg(0)"
           class="w-full h-full absolute"
-          :style="'background: url(' + images[0] + ') center/contain no-repeat'"
-        ></div>
-      </nuxt-link>
-      <nuxt-link class="w-1/3 relative" :to="{name: 'shop'}">
-        <div
-          @mouseenter="changeBg(1)"
-          @mouseleave="defaultBg(1)"
-          class="w-full h-full absolute"
-          :style="'background: url(' + images[1] + ') center/contain no-repeat'"
-        ></div>
-      </nuxt-link>
-      <nuxt-link class="w-1/3 relative" :to="{name: 'shop'}">
-        <div
-          @mouseenter="changeBg(2)"
-          @mouseleave="defaultBg(2)"
-          class="w-full h-full absolute"
-          :style="'background: url(' + images[2] + ') center/contain no-repeat'"
-        ></div>
+          :style="'background: url(' + hoverImages[index] + ') center/contain no-repeat'"
+        >
+          <img
+            class="w-full h-full object-contain hover:opacity-0"
+            :src="images[index]"
+            style="background-color: #1d1d1d;"
+          />
+        </div>
       </nuxt-link>
     </div>
   </section>
@@ -96,14 +89,6 @@ export default {
         }
         this.currentSlide++
       }
-    },
-    changeBg(index) {
-      event.target.style.background =
-        'url(' + this.hoverImages[index] + ') center/contain no-repeat'
-    },
-    defaultBg(index) {
-      event.target.style.background =
-        'url(' + this.images[index] + ') center/contain no-repeat'
     }
   }
 }
@@ -124,5 +109,9 @@ export default {
   .products-carousel .products {
     height: 500px !important;
   }
+}
+
+.products img {
+  transition: all 500ms;
 }
 </style>

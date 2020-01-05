@@ -80,25 +80,59 @@ export default {
             }
           })
           .then(async response => {
-            await this.$auth.loginWith('local', {
-              data: this.user
-            })
-          })
-          .catch(err => {
-            console.error(err)
-          })
-        await this.$axios
-          .get(`/cart/get/${this.$auth.user.user_id}`)
-          .then(response => {
-            if (response.data.items) {
-              this.$store.dispatch('initCartItems', response.data.items)
+            const { msg, err } = response.data
+            if (msg) {
+              await this.$auth.loginWith('local', {
+                data: this.user
+              })
+
+              await this.$axios
+                .get(`/cart/get/${this.$auth.user.user_id}`)
+                .then(response => {
+                  const { err, items } = response.data
+                  if (!err) {
+                    if (items) {
+                      this.$store.dispatch('initCartItems', items)
+                    } else {
+                      this.$store.dispatch('initCartItems', [])
+                    }
+                  } else {
+                    this.$notify({
+                      group: 'notification',
+                      title: 'Error caught:',
+                      type: 'error',
+                      text: err
+                    })
+                  }
+                })
+                .catch(err => {
+                  console.error(err)
+                  this.$notify({
+                    group: 'notification',
+                    title: 'Error caught:',
+                    type: 'error',
+                    text: "Couldn't load the cart"
+                  })
+                })
+
+              this.$router.push({ name: 'index' })
             } else {
-              this.$store.dispatch('initCartItems', [])
+              this.$notify({
+                group: 'notification',
+                title: 'Error caught:',
+                type: 'error',
+                text: err
+              })
             }
-            this.$router.push({ name: 'index' })
           })
           .catch(err => {
             console.error(err)
+            this.$notify({
+              group: 'notification',
+              title: 'Error caught:',
+              type: 'error',
+              text: "Couldn't sign in"
+            })
           })
       }
     }

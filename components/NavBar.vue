@@ -27,11 +27,7 @@
             src="~/assets/img/logout.svg"
             alt="Logout"
           />
-          <nuxt-link
-            v-if="!$auth.loggedIn"
-            class="hidden lg:inline w-5 mr-5"
-            :to="{name: 'signin'}"
-          >
+          <nuxt-link v-else class="hidden lg:inline w-5 mr-5" :to="{name: 'signin'}">
             <img src="~/assets/img/user.svg" alt="User" />
           </nuxt-link>
           <img

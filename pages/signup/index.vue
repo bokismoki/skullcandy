@@ -127,17 +127,39 @@ export default {
               }
             })
             .then(async response => {
-              await this.$auth.loginWith('local', {
-                data: this.user
-              })
-              this.$router.push({ name: 'index' })
+              const { msg, err } = response.data
+              if (msg) {
+                await this.$auth.loginWith('local', {
+                  data: this.user
+                })
+                this.$router.push({ name: 'index' })
+              } else {
+                this.$notify({
+                  group: 'notification',
+                  title: 'Error caught:',
+                  type: 'error',
+                  text: err
+                })
+              }
             })
             .catch(err => {
               console.error(err)
+              this.$notify({
+                group: 'notification',
+                title: 'Error caught:',
+                type: 'error',
+                text: "Couldn't register a new user"
+              })
             })
         }
       } catch (err) {
         console.error(err)
+        this.$notify({
+          group: 'notification',
+          title: 'Error caught:',
+          type: 'error',
+          text: "Couldn't register a new user"
+        })
       }
     }
   }

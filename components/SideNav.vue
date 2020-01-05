@@ -188,7 +188,7 @@
       <nuxt-link v-if="!$auth.loggedIn" :to="{name: 'signin'}">
         <li class="flex items-center border-t-2 p-3 border-gray-700 cursor-pointer">
           <img class="w-5 mr-5" src="~/assets/img/user.svg" alt="User" />
-          <span class="text-xs text-gray-500">Account</span>
+          <span class="text-xs text-gray-500">Sign in</span>
         </li>
       </nuxt-link>
       <li class="flex items-center border-t-2 p-3 border-gray-700">
