@@ -6,8 +6,10 @@
         <h2
           class="mt-2 mb-10 text-sm"
         >Sign up and save on your first order. Be the first to get access to limited-edition products, exclusive music performances, and athlete stories.</h2>
+        <label class="text-sm" for="email">Subscribe:</label>
         <input
-          class="text-center px-2 py-3 w-full text-black"
+          class="text-center px-2 py-3 mt-2 w-full text-black"
+          id="email"
           placeholder="Email Address"
           type="text"
         />
