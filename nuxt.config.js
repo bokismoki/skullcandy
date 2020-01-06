@@ -2,6 +2,12 @@ const PurgecssPlugin = require('purgecss-webpack-plugin');
 const glob = require('glob-all')
 const path = require('path')
 
+class TailwindExtractor {
+  static extract(content) {
+    return content.match(/[A-z0-9-:/]+/g) || []
+  }
+}
+
 module.exports = {
   mode: 'universal',
   /*
@@ -48,7 +54,8 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/auth',
-    'nuxt-lazy-load'
+    'nuxt-lazy-load',
+    '~modules/import-tailwind-config'
   ],
   /*
   ** Axios module configuration
@@ -65,19 +72,22 @@ module.exports = {
     ** You can extend webpack config here
     */
     extractCSS: true,
-    extend(config, { isDev, isClient }) {
-      if (!isDev && isClient) {
-        config.plugins.push(
-          new PurgecssPlugin({
-            paths: glob.sync([
-              path.join(__dirname, './pages/**/*.vue'),
-              path.join(__dirname, './layouts/**/*.vue'),
-              path.join(__dirname, './components/**/*.vue')
-            ]),
-            whitelist: ['html', 'body']
-          })
-        )
-      }
+    extend(config, ctx) {
+      config.plugins.push(
+        new PurgecssPlugin({
+          whitelist: ['html', 'body'],
+          paths: glob.sync([
+            path.join(__dirname, 'components/**/*.vue'),
+            path.join(__dirname, 'layouts/**/*.vue'),
+            path.join(__dirname, 'pages/**/*.vue'),
+            path.join(__dirname, 'plugins/**/*.vue')
+          ]),
+          extractors: [{
+            extractor: TailwindExtractor,
+            extensions: ['html', 'js', 'vue']
+          }]
+        })
+      )
     }
   },
 
