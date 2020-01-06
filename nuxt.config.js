@@ -1,3 +1,6 @@
+const PurgecssPlugin = require('purgecss-webpack-plugin');
+const glob = require('glob-all')
+const path = require('path')
 
 module.exports = {
   mode: 'universal',
@@ -61,7 +64,20 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    extend(config, ctx) {
+    extractCSS: true,
+    extend(config, { isDev, isClient }) {
+      if (!isDev && isClient) {
+        config.plugins.push(
+          new PurgecssPlugin({
+            paths: glob.sync([
+              path.join(__dirname, './pages/**/*.vue'),
+              path.join(__dirname, './layouts/**/*.vue'),
+              path.join(__dirname, './components/**/*.vue')
+            ]),
+            whitelist: ['html', 'body']
+          })
+        )
+      }
     }
   },
 
