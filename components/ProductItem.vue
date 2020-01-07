@@ -18,7 +18,7 @@
     </div>
     <button
       @click="addItem(product)"
-      class="bg-black text-white w-full my-2 py-4 font-black"
+      class="bg-black text-white w-full my-2 py-4 font-black hover:bg-gray-900"
     >ADD TO CART</button>
   </div>
 </template>

@@ -28,7 +28,7 @@
           </div>
           <div class="flex flex-col mt-5 sm:flex-row sm:items-center sm:justify-center">
             <button
-              class="bg-gray-900 text-white text-sm tracking-wider py-3 mt-3 hover:bg-gray-800 sm:px-10 sm:mr-5"
+              class="bg-black text-white text-sm tracking-wider py-3 mt-3 hover:bg-gray-900 sm:px-10 sm:mr-5"
               type="submit"
             >SIGN IN</button>
             <a class="text-center text-sm mt-3 hover:opacity-75" href="#">Forgot your password?</a>
@@ -46,7 +46,7 @@
         </ul>
         <nuxt-link :to="{name: 'signup'}">
           <button
-            class="bg-gray-900 px-10 text-white text-sm tracking-wider py-3 mt-3 hover:bg-gray-800"
+            class="bg-black px-10 text-white text-sm tracking-wider py-3 mt-3 hover:bg-gray-900"
             type="submit"
           >CREATE ACCOUNT</button>
         </nuxt-link>

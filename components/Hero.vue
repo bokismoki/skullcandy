@@ -32,7 +32,7 @@
             class="text-sm text-center my-4 sm:text-left sm:leading-none xl:text-lg"
           >See what you can score for up to 25% off during our holiday sale.</p>
           <nuxt-link
-            class="text-sm cursor-pointer text-center text-white bg-gray-900 hover:bg-gray-800 w-full block py-3 tracking-wide xl:inline-block xl:w-auto xl:px-5"
+            class="text-sm cursor-pointer text-center text-white bg-black hover:bg-gray-900 w-full block py-3 tracking-wide xl:inline-block xl:w-auto xl:px-5"
             :to="{name: 'shop'}"
           >SHOP SALE</nuxt-link>
         </div>

@@ -93,7 +93,7 @@
           <label class="text-sm ml-2 cursor-pointer" for="newsletter">Sign up for Newsletter</label>
         </div>
         <button
-          class="bg-gray-900 text-white w-full text-sm tracking-wider py-3 mt-3 hover:bg-gray-800 mt-5"
+          class="bg-black text-white w-full text-sm tracking-wider py-3 mt-3 hover:bg-gray-900 mt-5"
           type="submit"
         >SIGN UP</button>
       </form>
