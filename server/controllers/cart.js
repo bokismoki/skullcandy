@@ -18,7 +18,7 @@ exports.get = async (req, res) => {
 exports.updateQuantity = async (req, res) => {
     try {
         const user_id = req.params.id
-        const { item, action, index } = req.body
+        const { item, action, index, quantity } = req.body
         const cart = await Cart.findOne({ user_id })
         if (cart) {
             if (action === 'add') {
@@ -26,7 +26,7 @@ exports.updateQuantity = async (req, res) => {
                 await cart.save()
                 res.send({ msg: 'Successfully added new item to the cart' })
             } else if (action === '++') {
-                const cart = await Cart.findOneAndUpdate({ user_id }, { $inc: { [`items.${index}.quantity`]: 1 } })
+                const cart = await Cart.findOneAndUpdate({ user_id }, { $inc: { [`items.${index}.quantity`]: quantity } })
                 res.send({ msg: 'Successfully updated the cart' })
             } else if (action === '--') {
                 const cart = await Cart.findOneAndUpdate({ user_id }, { $inc: { [`items.${index}.quantity`]: -1 } })

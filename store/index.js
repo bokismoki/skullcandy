@@ -29,8 +29,9 @@ export const mutations = {
         state.cartItems.splice(payload, 1)
     },
     UPDATE_QUANTITY: (state, payload) => {
+        console.log(payload)
         if (payload.change) {
-            state.cartItems.find(item => item._id === payload._id).quantity++
+            state.cartItems.find(item => item._id === payload._id).quantity += payload.quantity
         } else {
             state.cartItems.find(item => item._id === payload._id).quantity--
         }
@@ -85,7 +86,7 @@ export const actions = {
             this.$axios.post(`/cart/updateQuantity/${state.auth.user.user_id}`, {
                 action: 'add',
                 item: payload,
-                user_id: this.$auth.user.user_id
+                user_id: this.$auth.user.user_id,
             }, {
                 headers: {
                     'content-type': 'application/json',
@@ -120,7 +121,7 @@ export const actions = {
         } else {
             const index = state.cartItems.findIndex(item => item._id === payload._id)
             dispatch('updateQuantity', {
-                _id: payload._id, change: 1, index
+                _id: payload._id, change: 1, index, quantity: payload.quantity
             })
         }
 
@@ -215,7 +216,8 @@ export const actions = {
                 action: '++',
                 item: payload._id,
                 index: payload.index,
-                user_id: this.$auth.user.user_id
+                user_id: this.$auth.user.user_id,
+                quantity: payload.quantity
             }, {
                 headers: {
                     'content-type': 'application/json',

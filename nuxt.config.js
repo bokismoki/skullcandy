@@ -62,7 +62,7 @@ module.exports = {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: 'https://skullcandy.herokuapp.com/api'
+    baseURL: 'http://localhost:3000/api'
   },
   /*
   ** Build configuration

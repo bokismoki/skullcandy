@@ -111,9 +111,10 @@ export default {
       if (this.$auth.loggedIn) {
         this.$store.dispatch('addItem', {
           ...this.product,
-          quantity: this.quantity
+          quantity: Number(this.quantity)
         })
         this.$store.dispatch('toggleIsCartOpen', 1)
+        this.quantity = 1
       } else {
         this.$notify({
           group: 'notification',

@@ -37,7 +37,12 @@ export default {
     },
     updateQuantity(change, _id, index) {
       if (change) {
-        this.$store.dispatch('updateQuantity', { change, _id, index })
+        this.$store.dispatch('updateQuantity', {
+          change,
+          _id,
+          index,
+          quantity: 1
+        })
       } else {
         this.$store.dispatch('updateQuantity', { change, _id, index })
       }
