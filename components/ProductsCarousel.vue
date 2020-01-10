@@ -1,23 +1,24 @@
 <template>
   <section class="products-carousel">
-    <div
-      class="h-screen cursor-pointer relative px-5 sm:hidden"
+    <nuxt-link
+      :to="{name: 'shop'}"
+      class="h-screen block cursor-pointer relative px-5 sm:hidden"
       :style="'background: url(' + images[currentSlide] + ') center/cover no-repeat'"
     >
-      <img
-        class="absolute w-8 cursor-pointer"
+      <button
+        class="absolute z-40 w-8 cursor-pointer"
         style="top: 50%; transform: translate(-50%);"
-        src="~/assets/img/chevron_left.svg"
-        alt="Chevron Left"
-        @click="switchSlide('-')"
-      />
-      <img
-        class="absolute w-8 cursor-pointer right-0"
+        @click.prevent="switchSlide('-')"
+      >
+        <img src="~/assets/img/chevron_left.svg" alt="Chevron Left" />
+      </button>
+      <button
+        class="absolute z-40 w-8 cursor-pointer right-0"
         style="top: 50%; transform: translate(-50%);"
-        src="~/assets/img/chevron_right.svg"
-        alt="Chevron Right"
-        @click="switchSlide('+')"
-      />
+        @click.prevent="switchSlide('+')"
+      >
+        <img src="~/assets/img/chevron_right.svg" alt="Chevron Right" />
+      </button>
       <div
         class="absolute flex items-center justify-center"
         style="left: 50%; bottom: 25px; transform: translate(-50%);"
@@ -35,12 +36,12 @@
           :class="{'bg-gray-800': currentSlide === 2}"
         ></span>
       </div>
-    </div>
+    </nuxt-link>
     <div class="products hidden sm:flex" style="background-color: #1d1d1d;">
       <nuxt-link
         v-for="(product, index) in 3"
         :key="index"
-        class="w-1/3 relative"
+        class="image w-1/3 relative"
         :to="{name: 'shop'}"
       >
         <div
@@ -96,6 +97,14 @@ export default {
 </script>
 
 <style scoped>
+.products img {
+  transition: all 500ms;
+}
+
+.image:focus > div > img {
+  @apply opacity-0;
+}
+
 @media (min-width: 640px) {
   .products-carousel .products {
     height: 300px !important;
@@ -110,9 +119,5 @@ export default {
   .products-carousel .products {
     height: 500px !important;
   }
-}
-
-.products img {
-  transition: all 500ms;
 }
 </style>

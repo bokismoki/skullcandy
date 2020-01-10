@@ -6,10 +6,10 @@
         <h2
           class="mt-2 mb-10 text-sm"
         >Sign up and save on your first order. Be the first to get access to limited-edition products, exclusive music performances, and athlete stories.</h2>
-        <label class="text-sm" for="email">Subscribe:</label>
+        <label class="text-sm" for="emailFooter">Subscribe:</label>
         <input
           class="text-center px-2 py-3 mt-2 w-full text-black"
-          id="email"
+          id="emailFooter"
           placeholder="Email Address"
           type="text"
         />
@@ -23,26 +23,18 @@
           <div class="mt-10">
             <h1 class="text-center text-sm font-semibold md:text-lg">FOLLOW US</h1>
             <div class="flex items-center justify-center mt-3">
-              <img
-                class="w-6 h-6 mx-3 cursor-pointer hover:opacity-75"
-                src="~/assets/img/instagram.svg"
-                alt="Instagram"
-              />
-              <img
-                class="w-6 h-6 mx-3 cursor-pointer hover:opacity-75"
-                src="~/assets/img/youtube.svg"
-                alt="Youtube"
-              />
-              <img
-                class="w-6 h-6 mx-3 cursor-pointer hover:opacity-75"
-                src="~/assets/img/facebook.svg"
-                alt="Facebook"
-              />
-              <img
-                class="w-6 h-6 mx-3 cursor-pointer hover:opacity-75"
-                src="~/assets/img/twitter.svg"
-                alt="Twitter"
-              />
+              <a href="#" class="hoverScale w-6 h-6 mx-3">
+                <img src="~/assets/img/instagram.svg" alt="Instagram" />
+              </a>
+              <a href="#" class="hoverScale w-6 h-6 mx-3">
+                <img src="~/assets/img/youtube.svg" alt="Youtube" />
+              </a>
+              <a href="#" class="hoverScale w-6 h-6 mx-3">
+                <img src="~/assets/img/facebook.svg" alt="Facebook" />
+              </a>
+              <a href="#" class="hoverScale w-6 h-6 mx-3">
+                <img src="~/assets/img/twitter.svg" alt="Twitter" />
+              </a>
             </div>
           </div>
           <div class="mt-10">
@@ -65,22 +57,22 @@
                   </div>
                   <div class="mt-3" v-if="supportOpen">
                     <ul>
-                      <li class="text-xs my-1 hover:opacity-75">
+                      <li class="text-xs my-1">
                         <a href="#">Help Center</a>
                       </li>
-                      <li class="text-xs my-1 hover:opacity-75">
+                      <li class="text-xs my-1">
                         <a href="#">Contact Us</a>
                       </li>
-                      <li class="text-xs my-1 hover:opacity-75">
+                      <li class="text-xs my-1">
                         <a href="#">Account</a>
                       </li>
-                      <li class="text-xs my-1 hover:opacity-75">
+                      <li class="text-xs my-1">
                         <a href="#">Product Help</a>
                       </li>
-                      <li class="text-xs my-1 hover:opacity-75">
+                      <li class="text-xs my-1">
                         <a href="#">Warranty</a>
                       </li>
-                      <li class="text-xs my-1 hover:opacity-75">
+                      <li class="text-xs my-1">
                         <a href="#">Order Status</a>
                       </li>
                     </ul>
@@ -103,11 +95,11 @@
                   </div>
                   <div class="mt-3" v-if="offersOpen">
                     <ul>
-                      <li class="text-xs my-1 hover:opacity-75">Compare</li>
-                      <li class="text-xs my-1 hover:opacity-75">Custom Product</li>
-                      <li class="text-xs my-1 hover:opacity-75">Bulk Orders</li>
-                      <li class="text-xs my-1 hover:opacity-75">Student Discount</li>
-                      <li class="text-xs my-1 hover:opacity-75">Press Releases</li>
+                      <li class="text-xs my-1">Compare</li>
+                      <li class="text-xs my-1">Custom Product</li>
+                      <li class="text-xs my-1">Bulk Orders</li>
+                      <li class="text-xs my-1">Student Discount</li>
+                      <li class="text-xs my-1">Press Releases</li>
                     </ul>
                   </div>
                 </li>
@@ -128,10 +120,10 @@
                   </div>
                   <div class="mt-3" v-if="aboutOpen">
                     <ul>
-                      <li class="text-xs my-1 hover:opacity-75">Our Story</li>
-                      <li class="text-xs my-1 hover:opacity-75">Born in PC</li>
-                      <li class="text-xs my-1 hover:opacity-75">Protect Our Winters</li>
-                      <li class="text-xs my-1 hover:opacity-75">Careers</li>
+                      <li class="text-xs my-1">Our Story</li>
+                      <li class="text-xs my-1">Born in PC</li>
+                      <li class="text-xs my-1">Protect Our Winters</li>
+                      <li class="text-xs my-1">Careers</li>
                     </ul>
                   </div>
                 </li>
@@ -139,33 +131,79 @@
             </div>
             <div class="hidden md:flex md:justify-center">
               <ul class="mr-5 lg:mr-20">
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Help</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Center</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Contact</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Us</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Account</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Product</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Help</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Warranty</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Order</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Status</li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Help</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Center</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Contact</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Us</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Account</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Product</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Help</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Warranty</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Order</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Status</a>
+                </li>
               </ul>
               <ul class="mr-5 lg:mr-20">
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Compare</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Custom</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Product</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Bulk</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Orders</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Student</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Discount</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Press</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Releases</li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Compare</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Custom</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Product</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Bulk</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Orders</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Student</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Discount</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Press</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Releases</a>
+                </li>
               </ul>
               <ul>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Our Story</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Born in PC</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Protect Our Winters</li>
-                <li class="text-sm cursor-pointer hover:opacity-75 xl:my-1">Careers</li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Our Story</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Born in PC</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Protect Our Winters</a>
+                </li>
+                <li class="xl:my-1">
+                  <a href="#" class="hoverScale inline-block text-sm">Careers</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -174,19 +212,19 @@
               class="text-center text-sm font-semibold uppercase md:text-lg"
             >Subscribe to our podcast</h1>
             <div class="flex items-center justify-center mt-3">
-              <a class="mx-3 hover:opacity-75" href="#">iTunes</a>
-              <a class="mx-3 hover:opacity-75" href="#">Spotify</a>
-              <a class="mx-3 hover:opacity-75" href="#">YouTube</a>
+              <a class="hoverScale mx-3" href="#">iTunes</a>
+              <a class="hoverScale mx-3" href="#">Spotify</a>
+              <a class="hoverScale mx-3" href="#">YouTube</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="border-t-2 border-gray-700">
+    <div class="mt-10 border-t-2 border-gray-700">
       <div class="container mx-auto p-5 sm:flex sm:items-center sm:justify-between">
         <p class="text-center text-gray-600 text-xs">
-          <span class="cursor-pointer hover:text-gray-400">Privacy Policy</span> |
-          <span class="cursor-pointer hover:text-gray-400">Terms of Use</span>
+          <a href="#" class="cursor-pointer hover:text-gray-400 focus:text-gray-400">Privacy Policy</a> |
+          <a href="#" class="cursor-pointer hover:text-gray-400 focus:text-gray-400">Terms of Use</a>
         </p>
         <p class="text-center text-gray-600 text-xs">&copy; 2019 Skullcandy.com All Rights Reserved</p>
       </div>
@@ -213,5 +251,10 @@ export default {
 }
 .plus.active {
   transform: rotate(135deg);
+}
+
+.hoverScale:hover,
+.hoverScale:focus {
+  transform: scale(1.1);
 }
 </style>

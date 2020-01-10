@@ -13,7 +13,7 @@
             class="text-sm text-center my-4"
           >See what you can score for up to 25% off during our holiday sale.</p>
           <nuxt-link
-            class="text-sm cursor-pointer text-center text-white bg-gray-900 hover:bg-gray-800 w-full block py-3 tracking-wide"
+            class="text-sm cursor-pointer text-center text-white bg-black w-full block py-3 tracking-wide hover:shadow-outline focus:shadow-outline"
             :to="{name: 'shop'}"
           >SHOP SALE</nuxt-link>
         </div>
@@ -32,22 +32,24 @@
             class="text-sm text-center my-4 sm:text-left sm:leading-none xl:text-lg"
           >See what you can score for up to 25% off during our holiday sale.</p>
           <nuxt-link
-            class="text-sm cursor-pointer text-center text-white bg-black hover:bg-gray-900 w-full block py-3 tracking-wide xl:inline-block xl:w-auto xl:px-5"
+            class="text-sm cursor-pointer text-center text-white bg-black w-full block py-3 tracking-wide hover:shadow-outline focus:shadow-outline xl:inline-block xl:w-auto xl:px-5"
             :to="{name: 'shop'}"
           >SHOP SALE</nuxt-link>
         </div>
       </div>
       <div class="sm:flex sm:flex-col sm:w-1/3">
-        <div
-          class="hero-small cursor-pointer"
+        <nuxt-link
+          :to="{name: 'shop'}"
+          class="hero-small"
           style="height: 375px;"
           :style="'background: url(' + images[2]+ ') center/cover no-repeat'"
-        ></div>
-        <div
-          class="hero-small cursor-pointer"
+        ></nuxt-link>
+        <nuxt-link
+          :to="{name: 'shop'}"
+          class="hero-small"
           style="height: 375px;"
           :style="'background: url(' + images[3]+ ') center/cover no-repeat'"
-        ></div>
+        ></nuxt-link>
       </div>
     </div>
   </section>
@@ -70,10 +72,15 @@ export default {
 </script>
 
 <style scoped>
+.hero-small:hover,
+.hero-small:focus {
+  @apply -ml-2;
+}
+
 @media (min-width: 640px) {
   .hero .hero-big {
-    height: auto !important;
-    background-position: right bottom !important;
+    @apply h-auto;
+    @apply bg-right-bottom;
   }
   .hero .hero-small {
     height: 230px !important;

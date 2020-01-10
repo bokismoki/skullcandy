@@ -7,7 +7,10 @@
       <div class="p-5 text-center w-full" :class="{'right-0': button === 'SHOP SALE'}">
         <h1 class="text-4xl text-white uppercase leading-none font-black">{{h1}}</h1>
         <p class="text-sm text-white my-4">{{p}}</p>
-        <a class="text-sm text-center bg-white w-full block py-3 tracking-wide" href="#">{{button}}</a>
+        <nuxt-link
+          :to="{name: 'shop'}"
+          class="text-sm text-center bg-white w-full block py-3 tracking-wide hover:shadow-outline focus:shadow-outline"
+        >{{button}}</nuxt-link>
       </div>
     </div>
     <div
@@ -22,7 +25,10 @@
           class="text-4xl text-white uppercase leading-none font-black sm:text-left sm:text-lg md:text-xl lg:text-3xl"
         >{{h1}}</h1>
         <p class="text-sm text-white my-4 sm:text-left sm:leading-none xl:text-lg">{{p}}</p>
-        <nuxt-link :to="{name: 'shop'}" class="text-sm cursor-pointer text-center bg-white w-full block py-3 tracking-wide">{{button}}</nuxt-link>
+        <nuxt-link
+          :to="{name: 'shop'}"
+          class="text-sm cursor-pointer text-center bg-white w-full block py-3 tracking-wide hover:shadow-outline focus:shadow-outline"
+        >{{button}}</nuxt-link>
       </div>
     </div>
   </section>

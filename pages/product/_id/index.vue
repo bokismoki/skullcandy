@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto product" style="margin-top: 68px;">
+  <div class="product container mx-auto" style="margin-top: 68px;">
     <div class="flex flex-col justify-center items-center px-8 pt-5 md:py-20">
       <div class="text-center md:flex md:items-center md:justify-between">
         <div class="md:text-left md:mr-20 left">
@@ -15,15 +15,15 @@
             <span>${{product.price}}</span>
           </h2>
           <div class="hidden md:relative md:block md:bg-black md:p-3 md:mt-5 md:rounded-lg">
-            <div
-              class="flex items-center justify-between bg-white cursor-pointer px-5 py-2"
+            <button
+              class="flex w-full items-center justify-between bg-white cursor-pointer px-5 py-2 hover:shadow-outline focus:shadow-outline"
               @click="colorOptionsOpen = !colorOptionsOpen"
             >
               <img class="w-10 h-10" :src="product['small-images'][0]" alt="Item's small image" />
               <span>
                 <div class="text-3xl plus" :class="{'active': colorOptionsOpen}">&plus;</div>
               </span>
-            </div>
+            </button>
             <div class="absolute w-2/3" v-if="colorOptionsOpen">
               <div
                 v-for="(image, index) in product['small-images']"
@@ -44,7 +44,7 @@
                 v-model="quantity"
               />
               <button
-                class="bg-white w-full self-stretch text-sm font-semibold"
+                class="bg-white w-full self-stretch text-sm font-semibold hover:shadow-outline focus:shadow-outline"
                 @click="addItem"
               >ADD TO CART</button>
             </div>
@@ -58,15 +58,15 @@
       </div>
       <div class="w-screen px-8 pt-3 py-10 mt-16 bg-black md:hidden">
         <div class="md:w-5/6 md:mx-auto">
-          <div
-            class="flex items-center justify-between bg-white cursor-pointer px-5 py-2"
+          <button
+            class="flex w-full items-center justify-between bg-white cursor-pointer px-5 py-2 hover:shadow-outline focus:shadow-outline"
             @click="colorOptionsOpen = !colorOptionsOpen"
           >
             <img class="w-10 h-10" :src="product['small-images'][0]" alt="Item's small image" />
             <span>
               <div class="text-3xl plus" :class="{'active': colorOptionsOpen}">&plus;</div>
             </span>
-          </div>
+          </button>
           <div v-if="colorOptionsOpen">
             <div
               v-for="(image, index) in product['small-images']"
@@ -82,7 +82,7 @@
             <label class="text-white mr-2 cursor-pointer" for="quantity">Q</label>
             <input id="quantity" class="mr-3 w-12 h-12 text-center" type="text" v-model="quantity" />
             <button
-              class="bg-white w-full self-stretch text-sm font-semibold"
+              class="bg-white w-full self-stretch text-sm font-semibold hover:shadow-outline focus:shadow-outline"
               @click="addItem"
             >ADD TO CART</button>
           </div>
@@ -94,6 +94,7 @@
 
 <script>
 export default {
+  name: 'Product',
   head() {
     return {
       title: this.product.name
@@ -148,18 +149,6 @@ export default {
 </script>
 
 <style scoped>
-@media (min-width: 1024px) {
-  .product {
-    margin-top: 61px !important;
-  }
-}
-
-@media (min-width: 768px) {
-  .left {
-    max-width: 400px;
-  }
-}
-
 .product .sale-price::after {
   @apply absolute;
   @apply bg-black;
@@ -175,5 +164,16 @@ export default {
 }
 .plus.active {
   transform: rotate(135deg);
+}
+
+@media (min-width: 1024px) {
+  .product {
+    margin-top: 61px !important;
+  }
+}
+@media (min-width: 768px) {
+  .left {
+    max-width: 400px;
+  }
 }
 </style>

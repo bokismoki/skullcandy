@@ -2,7 +2,7 @@
   <div
     class="fixed left-0 bottom-0 bg-black w-full lg:hidden overflow-y-auto"
     style="top: 64px; max-height: 70vh;"
-    v-if="menuOpen"
+    v-if="isSideNavOpen"
   >
     <ul class="text-white">
       <li class="flex flex-col cursor-pointer border-t-2 p-3 border-gray-700">
@@ -195,7 +195,12 @@
         <label for="search">
           <img class="w-5 mr-5" src="~/assets/img/magnifying_glass.svg" alt="Magnifying glass" />
         </label>
-        <input id="search" class="text-xs bg-transparent w-full p-1" type="text" placeholder="Search" />
+        <input
+          id="search"
+          class="text-xs bg-transparent w-full p-1"
+          type="text"
+          placeholder="Search"
+        />
       </li>
     </ul>
   </div>
@@ -204,7 +209,7 @@
 <script>
 export default {
   name: 'SideNav',
-  props: ['menuOpen'],
+  props: ['isSideNavOpen'],
   data() {
     return {
       shopOpen: false,

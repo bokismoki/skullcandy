@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto sign-up" style="margin-top: 68px;">
+  <div class="sign-up container mx-auto" style="margin-top: 68px;">
     <div class="py-10 px-5 sm:max-w-lg sm:mx-auto">
       <h1 class="text-center font-black text-4xl md:text-5xl">SIGN UP</h1>
       <form @submit.prevent="signup">
@@ -27,6 +27,7 @@
             class="border-2 w-full p-2 bg-gray-200 focus:border-gray-500"
             type="password"
             id="confirmPassword"
+            v-model="user.confirmPassword"
           />
         </div>
         <div class="mt-2">
@@ -93,7 +94,7 @@
           <label class="text-sm ml-2 cursor-pointer" for="newsletter">Sign up for Newsletter</label>
         </div>
         <button
-          class="bg-black text-white w-full text-sm tracking-wider py-3 mt-3 hover:bg-gray-900 mt-5"
+          class="bg-black text-white w-full text-sm tracking-wider py-3 mt-5 hover:shadow-outline focus:shadow-outline"
           type="submit"
         >SIGN UP</button>
       </form>
@@ -112,14 +113,19 @@ export default {
     return {
       user: {
         email: '',
-        password: ''
+        password: '',
+        confirmPassword: ''
       }
     }
   },
   methods: {
     async signup() {
       try {
-        if (this.user.email.trim() && this.user.password.trim()) {
+        if (
+          this.user.email.trim() &&
+          this.user.password.trim() &&
+          this.user.password.trim() === this.user.confirmPassword.trim()
+        ) {
           await this.$axios
             .post('/user/signup', this.user, {
               headers: {

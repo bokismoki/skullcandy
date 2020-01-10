@@ -3,7 +3,8 @@ import Vue from 'vue'
 export const state = () => ({
     products: [],
     cartItems: [],
-    isCartOpen: false
+    isCartOpen: false,
+    isSideNavOpen: false
 })
 
 export const getters = {
@@ -15,7 +16,8 @@ export const getters = {
             return acc += item.price * item.quantity
         }, 0)
     },
-    isCartOpen: state => state.isCartOpen
+    isCartOpen: state => state.isCartOpen,
+    isSideNavOpen: state => state.isSideNavOpen
 }
 
 export const mutations = {
@@ -41,6 +43,13 @@ export const mutations = {
             state.isCartOpen = true
         } else {
             state.isCartOpen = false
+        }
+    },
+    TOGGLE_IS_SIDE_NAV_OPEN: (state, payload) => {
+        if (payload) {
+            state.isSideNavOpen = true
+        } else {
+            state.isSideNavOpen = false
         }
     },
     INIT_CART_ITEMS: (state, payload) => {
@@ -253,6 +262,9 @@ export const actions = {
     },
     toggleIsCartOpen: ({ commit }, payload) => {
         commit('TOGGLE_IS_CART_OPEN', payload)
+    },
+    toggleIsSideNavOpen: ({ commit }, payload) => {
+        commit('TOGGLE_IS_SIDE_NAV_OPEN', payload)
     },
     initCartItems: ({ commit }, payload) => {
         commit('INIT_CART_ITEMS', payload)

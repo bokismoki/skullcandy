@@ -1,29 +1,29 @@
 <template>
-  <div class="container mx-auto shop" style="margin-top: 68px;">
+  <div class="shop container mx-auto" style="margin-top: 68px;">
     <div class="py-10 px-5 sm:max-w-lg sm:mx-auto md:max-w-5/6 md:min-w-full">
       <h1 class="text-center font-black text-4xl md:text-5xl">SHOP</h1>
       <div class="my-10 md:max-w-lg md:mx-auto">
         <div class="flex flex-col md:flex-row">
           <button
             @click="filter = 'headphones'"
-            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1"
+            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1 hover:bg-gray-400 focus:bg-gray-400"
             :class="{'active': filter === 'headphones'}"
           >HEADPHONES</button>
           <button
             @click="filter = 'earbuds'"
-            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1"
+            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1 hover:bg-gray-400 focus:bg-gray-400"
             :class="{'active': filter === 'earbuds'}"
           >EARBUDS</button>
         </div>
         <div class="flex flex-col md:flex-row">
           <button
             @click="filter = 'speakers'"
-            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1"
+            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1 hover:bg-gray-400 focus:bg-gray-400"
             :class="{'active': filter === 'speakers'}"
           >SPEAKERS</button>
           <button
             @click="filter = 'all'"
-            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1"
+            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1 hover:bg-gray-400 focus:bg-gray-400"
             :class="{'active': filter === 'all'}"
           >ALL</button>
         </div>

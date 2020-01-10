@@ -25,6 +25,7 @@ export default {
 *:after {
   box-sizing: border-box;
   margin: 0;
+  outline: none !important;
 }
 body {
   font-family: Helvetica, Arial, sans-serif;

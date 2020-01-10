@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto sign-in" style="margin-top: 68px;">
+  <div class="sign-in container mx-auto" style="margin-top: 68px;">
     <div class="py-10 px-5 md:flex md:justify-between md:items-start md:px-10 md:py-16 lg:py-24">
       <div class="md:w-1/2 md:mr-10">
         <h1 class="text-center font-black text-4xl md:text-left md:text-5xl">SIGN IN</h1>
@@ -28,10 +28,13 @@
           </div>
           <div class="flex flex-col mt-5 sm:flex-row sm:items-center sm:justify-center">
             <button
-              class="bg-black text-white text-sm tracking-wider py-3 mt-3 hover:bg-gray-900 sm:px-10 sm:mr-5"
+              class="bg-black text-white text-sm tracking-wider py-3 mt-3 hover:shadow-outline focus:shadow-outline sm:px-10 sm:mr-5"
               type="submit"
             >SIGN IN</button>
-            <a class="text-center text-sm mt-3 hover:opacity-75" href="#">Forgot your password?</a>
+            <a
+              class="text-center text-sm mt-3 hover:opacity-75 focus:opacity-75"
+              href="#"
+            >Forgot your password?</a>
           </div>
         </form>
       </div>
@@ -44,12 +47,10 @@
           <li class="text-sm ml-10 mt-1 opacity-75">Access your order history</li>
           <li class="text-sm ml-10 mt-1 opacity-75">Track new orders</li>
         </ul>
-        <nuxt-link :to="{name: 'signup'}">
-          <button
-            class="bg-black px-10 text-white text-sm tracking-wider py-3 mt-3 hover:bg-gray-900"
-            type="submit"
-          >CREATE ACCOUNT</button>
-        </nuxt-link>
+        <nuxt-link
+          class="bg-black inline-block px-10 text-white text-sm tracking-wider py-3 mt-3 hover:shadow-outline focus:shadow-outline"
+          :to="{name: 'signup'}"
+        >CREATE ACCOUNT</nuxt-link>
       </div>
     </div>
   </div>

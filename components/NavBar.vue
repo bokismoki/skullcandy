@@ -2,13 +2,13 @@
   <nav class="navbar fixed top-0 z-50 w-full bg-black lg:px-6">
     <div class="container mx-auto px-3 py-1">
       <div class="flex justify-between items-center py-2">
-        <div class="hamburger_menu cursor-pointer lg:hidden" @click="menuOpen = !menuOpen">
-          <div class="line w-8 h-1 bg-white my-2" :class="{'top_active': menuOpen}"></div>
-          <div class="line w-8 h-1 bg-white my-2" :class="{'opacity-0': menuOpen}"></div>
-          <div class="line w-8 h-1 bg-white my-2" :class="{'bottom_active': menuOpen}"></div>
-        </div>
-        <div class="lg:flex lg:items-center">
-          <nuxt-link class="cursor-pointer lg:mr-5" :to="{name: 'index'}">
+        <button class="hoverScale hamburger_menu lg:hidden" @click="toggleIsSideNavOpen">
+          <div class="line w-8 h-1 bg-white my-2" :class="{'top_active': isSideNavOpen}"></div>
+          <div class="line w-8 h-1 bg-white my-2" :class="{'opacity-0': isSideNavOpen}"></div>
+          <div class="line w-8 h-1 bg-white my-2" :class="{'bottom_active': isSideNavOpen}"></div>
+        </button>
+        <div class="flex lg:items-center">
+          <nuxt-link class="hoverScale inline-block lg:mr-5" :to="{name: 'index'}">
             <img class="w-40" src="~/assets/img/skullcandy_logo.jpg" alt="Skullcandy Logo" />
           </nuxt-link>
           <nuxt-link
@@ -20,14 +20,15 @@
         <div class="p-2 cursor-pointer lg:flex lg:items-center">
           <a class="hidden lg:inline text-white text-xs opacity-75 mr-5 pseudo" href="#">Location</a>
           <a class="hidden lg:inline text-white text-xs opacity-75 mr-5 pseudo" href="#">Support</a>
-          <img
+          <button
             v-if="$auth.loggedIn"
             @click="logout"
-            class="hidden lg:inline w-5 h-5 mr-5"
-            src="~/assets/img/logout.svg"
-            alt="Logout"
-          />
-          <nuxt-link v-else class="hidden lg:inline w-5 mr-5" :to="{name: 'signin'}">
+            @keydown.enter="logout"
+            class="hoverScale hidden lg:inline w-5 h-5 mr-5"
+          >
+            <img src="~/assets/img/logout.svg" alt="Logout" />
+          </button>
+          <nuxt-link v-else class="hoverScale hidden lg:inline w-5 mr-5" :to="{name: 'signin'}">
             <img src="~/assets/img/user.svg" alt="User" />
           </nuxt-link>
           <img
@@ -35,18 +36,14 @@
             src="~/assets/img/magnifying_glass.svg"
             alt="Magnifying glass"
           />
-          <img
-            v-if="$auth.loggedIn"
-            @click="toggleIsCartOpen"
-            class="w-5"
-            src="~/assets/img/cart.svg"
-            alt="Shopping Cart"
-          />
+          <button v-if="$auth.loggedIn" @click="toggleIsCartOpen" class="hoverScale w-5 flex">
+            <img src="~/assets/img/cart.svg" alt="Shopping Cart" />
+          </button>
         </div>
       </div>
       <Cart />
       <transition name="nav-slide">
-        <SideNav :menuOpen="menuOpen" />
+        <SideNav :isSideNavOpen="isSideNavOpen" />
       </transition>
     </div>
   </nav>
@@ -63,15 +60,13 @@ export default {
     SideNav,
     Cart
   },
-  data() {
-    return {
-      menuOpen: false
-    }
-  },
   computed: {
-    ...mapGetters(['isCartOpen'])
+    ...mapGetters(['isCartOpen', 'isSideNavOpen'])
   },
   methods: {
+    toggleIsSideNavOpen() {
+      this.$store.dispatch('toggleIsSideNavOpen', !this.isSideNavOpen)
+    },
     toggleIsCartOpen() {
       if (this.isCartOpen) {
         this.$store.dispatch('toggleIsCartOpen', 0)
@@ -118,30 +113,37 @@ export default {
 }
 
 .pseudo {
-  position: relative;
+  @apply relative;
 }
 .pseudo::before,
 .pseudo::after {
-  position: absolute;
+  @apply absolute;
+  @apply bg-white;
+  @apply w-0;
+  @apply bottom-0;
   content: '';
-  background-color: #fff;
-  width: 0%;
   height: 1px;
-  bottom: 0;
   transition: width 250ms;
 }
 .pseudo::before {
   left: 0%;
 }
-.pseudo:hover::before {
-  width: 50%;
-  left: 0%;
-}
 .pseudo::after {
   right: 0%;
 }
-.pseudo:hover::after {
+.pseudo:hover::before,
+.pseudo:focus::before {
+  width: 50%;
+  left: 0%;
+}
+.pseudo:hover::after,
+.pseudo:focus::after {
   width: 50%;
   right: 0%;
+}
+
+.hoverScale:hover,
+.hoverScale:focus {
+  transform: scale(1.1);
 }
 </style>
