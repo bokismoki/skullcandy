@@ -21,7 +21,10 @@
             >
               <img class="w-10 h-10" :src="product['small-images'][0]" alt="Item's small image" />
               <span>
-                <div class="text-3xl plus" :class="{'active': colorOptionsOpen}">&plus;</div>
+                <div
+                  class="text-3xl plus transition-transform transition-500"
+                  :class="{'active': colorOptionsOpen}"
+                >&plus;</div>
               </span>
             </button>
             <div class="absolute w-2/3" v-if="colorOptionsOpen">
@@ -159,9 +162,6 @@ export default {
   top: 50%;
 }
 
-.plus {
-  transition: transform 500ms;
-}
 .plus.active {
   transform: rotate(135deg);
 }

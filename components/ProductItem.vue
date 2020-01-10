@@ -1,7 +1,7 @@
 <template>
   <div>
     <nuxt-link class="anchor" :to="{name: 'product-id', params: {id: product._id}}">
-      <div class="cursor-pointer w-5/6 mx-auto">
+      <div class="cursor-pointer w-5/6 mx-auto transition-transform transition-250">
         <img class="w-full" :src="product['main-image']" alt="Item's main image" />
       </div>
       <div class="flex items-center justify-center">
@@ -50,9 +50,6 @@ export default {
 </script>
 
 <style scoped>
-.anchor > div:first-of-type {
-  transition: transform 250ms;
-}
 .anchor:hover > div:first-of-type,
 .anchor:focus > div:first-of-type {
   transform: scale(1.02);

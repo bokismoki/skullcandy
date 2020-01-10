@@ -48,7 +48,7 @@
                     <span class="text-sm">SUPPORT</span>
                     <span>
                       <img
-                        class="plus w-5 h-5"
+                        class="plus w-5 h-5 transition-transform transition-500"
                         :class="{'active': supportOpen}"
                         src="~/assets/img/plus.svg"
                         alt="Plus"
@@ -86,7 +86,7 @@
                     <span class="text-sm">OFFERS</span>
                     <span>
                       <img
-                        class="plus w-5 h-5"
+                        class="plus w-5 h-5 transition-transform transition-500"
                         :class="{'active': offersOpen}"
                         src="~/assets/img/plus.svg"
                         alt="Plus"
@@ -111,7 +111,7 @@
                     <span class="text-sm">ABOUT</span>
                     <span>
                       <img
-                        class="plus w-5 h-5"
+                        class="plus w-5 h-5 transition-transform transition-500"
                         :class="{'active': aboutOpen}"
                         src="~/assets/img/plus.svg"
                         alt="Plus"
@@ -223,8 +223,14 @@
     <div class="mt-10 border-t-2 border-gray-700">
       <div class="container mx-auto p-5 sm:flex sm:items-center sm:justify-between">
         <p class="text-center text-gray-600 text-xs">
-          <a href="#" class="cursor-pointer hover:text-gray-400 focus:text-gray-400">Privacy Policy</a> |
-          <a href="#" class="cursor-pointer hover:text-gray-400 focus:text-gray-400">Terms of Use</a>
+          <a
+            href="#"
+            class="cursor-pointer hover:text-gray-400 focus:text-gray-400 transition-color transition-250"
+          >Privacy Policy</a> |
+          <a
+            href="#"
+            class="cursor-pointer hover:text-gray-400 focus:text-gray-400 transition-color transition-250"
+          >Terms of Use</a>
         </p>
         <p class="text-center text-gray-600 text-xs">&copy; 2019 Skullcandy.com All Rights Reserved</p>
       </div>
@@ -246,13 +252,14 @@ export default {
 </script>
 
 <style scoped>
-.plus {
-  transition: transform 500ms;
-}
 .plus.active {
   transform: rotate(135deg);
 }
 
+.hoverScale {
+  @apply transition-transform;
+  @apply transition-100;
+}
 .hoverScale:hover,
 .hoverScale:focus {
   transform: scale(1.1);

@@ -95,7 +95,8 @@ export default {
 
 .hamburger_menu .line {
   @apply relative;
-  transition: all 500ms;
+  @apply transition-all;
+  @apply transition-500;
 }
 .hamburger_menu .line:first-of-type {
   @apply top-0;
@@ -121,27 +122,30 @@ export default {
   @apply bg-white;
   @apply w-0;
   @apply bottom-0;
+  @apply transition-all;
+  @apply transition-500;
   content: '';
   height: 1px;
-  transition: width 250ms;
 }
 .pseudo::before {
-  left: 0%;
+  @apply left-0;
 }
 .pseudo::after {
-  right: 0%;
+  @apply right-0;
 }
 .pseudo:hover::before,
 .pseudo:focus::before {
   width: 50%;
-  left: 0%;
 }
 .pseudo:hover::after,
 .pseudo:focus::after {
   width: 50%;
-  right: 0%;
 }
 
+.hoverScale {
+  @apply transition-transform;
+  @apply transition-250;
+}
 .hoverScale:hover,
 .hoverScale:focus {
   transform: scale(1.1);

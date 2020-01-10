@@ -233,7 +233,8 @@ export default {
 
 <style scoped>
 .plus {
-  transition: transform 500ms;
+  @apply transition-transform;
+  @apply transition-500;
 }
 .plus.active {
   transform: rotate(135deg);

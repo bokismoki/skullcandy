@@ -49,7 +49,7 @@
           :style="'background: url(' + hoverImages[index] + ') center/contain no-repeat'"
         >
           <img
-            class="w-full h-full object-contain hover:opacity-0"
+            class="w-full h-full object-contain hover:opacity-0 transition-opacity transition-500"
             :src="images[index]"
             style="background-color: #1d1d1d;"
             alt="Product Image"
@@ -97,10 +97,6 @@ export default {
 </script>
 
 <style scoped>
-.products img {
-  transition: all 500ms;
-}
-
 .image:focus > div > img {
   @apply opacity-0;
 }

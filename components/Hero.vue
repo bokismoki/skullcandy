@@ -40,13 +40,13 @@
       <div class="sm:flex sm:flex-col sm:w-1/3">
         <nuxt-link
           :to="{name: 'shop'}"
-          class="hero-small"
+          class="hero-small transition-all transition-500"
           style="height: 375px;"
           :style="'background: url(' + images[2]+ ') center/cover no-repeat'"
         ></nuxt-link>
         <nuxt-link
           :to="{name: 'shop'}"
-          class="hero-small"
+          class="hero-small transition-all transition-500"
           style="height: 375px;"
           :style="'background: url(' + images[3]+ ') center/cover no-repeat'"
         ></nuxt-link>

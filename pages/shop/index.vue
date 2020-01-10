@@ -6,24 +6,24 @@
         <div class="flex flex-col md:flex-row">
           <button
             @click="filter = 'headphones'"
-            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1 hover:bg-gray-400 focus:bg-gray-400"
+            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1 hover:bg-gray-400 focus:bg-gray-400 transition-bg transition-250"
             :class="{'active': filter === 'headphones'}"
           >HEADPHONES</button>
           <button
             @click="filter = 'earbuds'"
-            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1 hover:bg-gray-400 focus:bg-gray-400"
+            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1 hover:bg-gray-400 focus:bg-gray-400 transition-bg transition-250"
             :class="{'active': filter === 'earbuds'}"
           >EARBUDS</button>
         </div>
         <div class="flex flex-col md:flex-row">
           <button
             @click="filter = 'speakers'"
-            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1 hover:bg-gray-400 focus:bg-gray-400"
+            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1 hover:bg-gray-400 focus:bg-gray-400 transition-bg transition-250"
             :class="{'active': filter === 'speakers'}"
           >SPEAKERS</button>
           <button
             @click="filter = 'all'"
-            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1 hover:bg-gray-400 focus:bg-gray-400"
+            class="bg-gray-300 my-1 py-4 text-xs md:w-1/2 md:mx-1 hover:bg-gray-400 focus:bg-gray-400 transition-bg transition-250"
             :class="{'active': filter === 'all'}"
           >ALL</button>
         </div>
