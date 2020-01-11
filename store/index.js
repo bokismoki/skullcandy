@@ -31,7 +31,6 @@ export const mutations = {
         state.cartItems.splice(payload, 1)
     },
     UPDATE_QUANTITY: (state, payload) => {
-        console.log(payload)
         if (payload.change) {
             state.cartItems.find(item => item._id === payload._id).quantity += payload.quantity
         } else {
@@ -39,18 +38,10 @@ export const mutations = {
         }
     },
     TOGGLE_IS_CART_OPEN: (state, payload) => {
-        if (payload) {
-            state.isCartOpen = true
-        } else {
-            state.isCartOpen = false
-        }
+        state.isCartOpen = payload
     },
     TOGGLE_IS_SIDE_NAV_OPEN: (state, payload) => {
-        if (payload) {
-            state.isSideNavOpen = true
-        } else {
-            state.isSideNavOpen = false
-        }
+        state.isSideNavOpen = payload
     },
     INIT_CART_ITEMS: (state, payload) => {
         state.cartItems = payload
@@ -102,7 +93,7 @@ export const actions = {
                     'authorization': localStorage.getItem('auth._token.local')
                 }
             }).then(response => {
-                const { msg, err } = response.data
+                const { msg, err, authorizationError } = response.data
                 if (msg) {
                     Vue.notify({
                         group: 'notification',
@@ -117,6 +108,12 @@ export const actions = {
                         type: 'error',
                         text: err
                     })
+                    if (authorizationError) {
+                        this.$auth.logout().then(() => {
+                            dispatch('toggleIsCartOpen', false)
+                            dispatch('toggleIsSideNavOpen', false)
+                        })
+                    }
                 }
             }).catch(err => {
                 console.error(err)
@@ -148,7 +145,7 @@ export const actions = {
                 'authorization': localStorage.getItem('auth._token.local')
             }
         }).then(response => {
-            const { msg, err } = response.data
+            const { msg, err, authorizationError } = response.data
             if (msg) {
                 Vue.notify({
                     group: 'notification',
@@ -163,6 +160,12 @@ export const actions = {
                     type: 'error',
                     text: err
                 })
+                if (authorizationError) {
+                    this.$auth.logout().then(() => {
+                        dispatch('toggleIsCartOpen', false)
+                        dispatch('toggleIsSideNavOpen', false)
+                    })
+                }
             }
         }).catch(err => {
             console.error(err)
@@ -192,7 +195,7 @@ export const actions = {
                         'authorization': localStorage.getItem('auth._token.local')
                     }
                 }).then(response => {
-                    const { msg, err } = response.data
+                    const { msg, err, authorizationError } = response.data
                     if (msg) {
                         Vue.notify({
                             group: 'notification',
@@ -207,6 +210,12 @@ export const actions = {
                             type: 'error',
                             text: err
                         })
+                        if (authorizationError) {
+                            this.$auth.logout().then(() => {
+                                dispatch('toggleIsCartOpen', false)
+                                dispatch('toggleIsSideNavOpen', false)
+                            })
+                        }
                     }
                 }).catch(err => {
                     console.error(err)
@@ -233,7 +242,7 @@ export const actions = {
                     'authorization': localStorage.getItem('auth._token.local')
                 }
             }).then(response => {
-                const { msg, err } = response.data
+                const { msg, err, authorizationError } = response.data
                 if (msg) {
                     Vue.notify({
                         group: 'notification',
@@ -248,6 +257,12 @@ export const actions = {
                         type: 'error',
                         text: err
                     })
+                    if (authorizationError) {
+                        this.$auth.logout().then(() => {
+                            dispatch('toggleIsCartOpen', false)
+                            dispatch('toggleIsSideNavOpen', false)
+                        })
+                    }
                 }
             }).catch(err => {
                 console.error(err)

@@ -224,7 +224,8 @@ export default {
   methods: {
     logout() {
       this.$auth.logout().then(() => {
-        this.$store.dispatch('toggleIsCartOpen', 0)
+        this.$store.dispatch('toggleIsCartOpen', false)
+        this.$store.dispatch('toggleIsSideNavOpen', false)
       })
     }
   }

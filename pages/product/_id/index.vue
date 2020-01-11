@@ -113,11 +113,20 @@ export default {
   methods: {
     addItem() {
       if (this.$auth.loggedIn) {
-        this.$store.dispatch('addItem', {
-          ...this.product,
-          quantity: Number(this.quantity)
-        })
-        this.$store.dispatch('toggleIsCartOpen', 1)
+        if (!isNaN(Number(this.quantity)) && Number(this.quantity) > 0) {
+          this.$store.dispatch('addItem', {
+            ...this.product,
+            quantity: Number(this.quantity)
+          })
+          this.$store.dispatch('toggleIsCartOpen', true)
+        } else {
+          this.$notify({
+            group: 'notification',
+            title: 'Error caught:',
+            type: 'error',
+            text: 'Please use the right number'
+          })
+        }
         this.quantity = 1
       } else {
         this.$notify({

@@ -3,25 +3,28 @@ const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
 module.exports = async (req, res, next) => {
-    const header = req.headers['authorization'];
+    const authorizationHeader = req.headers['authorization']
+    const cookiesHeader = req.headers['cookie']
 
-    const token = header.split(', ')[1]
+    const authorizationToken = authorizationHeader.split(', ')[1]
+    const cookieToken = cookiesHeader.split('; ')[2].split('=')[1]
 
-    if (typeof header !== 'undefined') {
+    if (typeof authorizationHeader !== 'undefined') {
 
-        const decode = await jwt.decode(token, process.env.JWT_SECRET)
+        const authorizationDecode = await jwt.decode(authorizationToken, process.env.JWT_SECRET)
+        const cookieDecode = await jwt.decode(cookieToken, process.env.JWT_SECRET)
 
-        if (decode && req.body.user_id) {
-            if (decode.user_id === req.body.user_id) {
-                next();
+        if (authorizationDecode && cookieDecode && req.body.user_id) {
+            if (authorizationDecode.user_id === req.body.user_id && cookieDecode.user_id === req.body.user_id) {
+                next()
             } else {
-                res.send({ err: 'Error while updating the cart' })
+                res.send({ err: 'Error while updating the cart, logging out...', authorizationError: true })
             }
         } else {
-            res.send({ err: 'Error while updating the cart' })
+            res.send({ err: 'Error while updating the cart, logging out...', authorizationError: true })
         }
 
     } else {
-        res.send({ err: 'Error while updating the cart' })
+        res.send({ err: 'Error while updating the cart, logging out...', authorizationError: true })
     }
 }

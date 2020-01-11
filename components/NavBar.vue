@@ -68,15 +68,12 @@ export default {
       this.$store.dispatch('toggleIsSideNavOpen', !this.isSideNavOpen)
     },
     toggleIsCartOpen() {
-      if (this.isCartOpen) {
-        this.$store.dispatch('toggleIsCartOpen', 0)
-      } else {
-        this.$store.dispatch('toggleIsCartOpen', 1)
-      }
+      this.$store.dispatch('toggleIsCartOpen', !this.isCartOpen)
     },
     logout() {
       this.$auth.logout().then(() => {
-        this.$store.dispatch('toggleIsCartOpen', 0)
+        this.$store.dispatch('toggleIsCartOpen', false)
+        this.$store.dispatch('toggleIsSideNavOpen', false)
       })
     }
   }
@@ -90,7 +87,8 @@ export default {
 }
 .nav-slide-enter-active,
 .nav-slide-leave-active {
-  transition: left 500ms;
+  @apply transition-all;
+  @apply transition-500;
 }
 
 .hamburger_menu .line {
@@ -135,11 +133,11 @@ export default {
 }
 .pseudo:hover::before,
 .pseudo:focus::before {
-  width: 50%;
+  @apply w-1/2;
 }
 .pseudo:hover::after,
 .pseudo:focus::after {
-  width: 50%;
+  @apply w-1/2;
 }
 
 .hoverScale {
