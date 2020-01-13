@@ -7,7 +7,9 @@ module.exports = async (req, res, next) => {
     const cookiesHeader = req.headers['cookie']
 
     const authorizationToken = authorizationHeader.split(', ')[1]
-    const cookieToken = cookiesHeader.split('; ')[2].split('=')[1]
+    const cookieToken = cookiesHeader.split('; ')[1].split('=')[1]
+    console.log(cookiesHeader)
+    console.log(cookieToken)
 
     if (typeof authorizationHeader !== 'undefined') {
 
