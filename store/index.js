@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { outputNotification } from '~/Utils'
 
 export const state = () => ({
     products: [],
@@ -55,12 +55,7 @@ export const actions = {
                 commit('SET_PRODUCTS', response.data)
             }).catch(err => {
                 console.error(err)
-                Vue.notify({
-                    group: 'notification',
-                    title: 'Error caught:',
-                    type: 'error',
-                    text: 'Couldn\'t fetch products'
-                })
+                outputNotification('Couldn\'t fetch products')
             })
         if (rootState.auth.loggedIn) {
             await $axios.get(`/cart/get/${$auth.$state.user.user_id}`)
@@ -70,12 +65,7 @@ export const actions = {
                     }
                 }).catch(err => {
                     console.error(err)
-                    Vue.notify({
-                        group: 'notification',
-                        title: 'Error caught:',
-                        type: 'error',
-                        text: 'Couldn\'t fetch cartItems from the database'
-                    })
+                    outputNotification('Couldn\'t fetch cartItems from the database')
                 })
         }
     },
@@ -95,19 +85,9 @@ export const actions = {
             }).then(response => {
                 const { msg, err, authorizationError } = response.data
                 if (msg) {
-                    Vue.notify({
-                        group: 'notification',
-                        title: 'Cart status:',
-                        type: 'success',
-                        text: msg
-                    })
+                    outputNotification(null, msg)
                 } else {
-                    Vue.notify({
-                        group: 'notification',
-                        title: 'Cart status:',
-                        type: 'error',
-                        text: err
-                    })
+                    outputNotification(err)
                     if (authorizationError) {
                         this.$auth.logout().then(() => {
                             dispatch('toggleIsCartOpen', false)
@@ -117,12 +97,7 @@ export const actions = {
                 }
             }).catch(err => {
                 console.error(err)
-                Vue.notify({
-                    group: 'notification',
-                    title: 'Error caught:',
-                    type: 'error',
-                    text: 'Couldn\'t add the cart item to the database'
-                })
+                outputNotification('Couldn\'t add the item to the database')
             })
         } else {
             const index = state.cartItems.findIndex(item => item._id === payload._id)
@@ -147,19 +122,9 @@ export const actions = {
         }).then(response => {
             const { msg, err, authorizationError } = response.data
             if (msg) {
-                Vue.notify({
-                    group: 'notification',
-                    title: 'Cart status:',
-                    type: 'success',
-                    text: msg
-                })
+                outputNotification(null, msg)
             } else {
-                Vue.notify({
-                    group: 'notification',
-                    title: 'Cart status:',
-                    type: 'error',
-                    text: err
-                })
+                outputNotification(err)
                 if (authorizationError) {
                     this.$auth.logout().then(() => {
                         dispatch('toggleIsCartOpen', false)
@@ -169,12 +134,7 @@ export const actions = {
             }
         }).catch(err => {
             console.error(err)
-            Vue.notify({
-                group: 'notification',
-                title: 'Error caught:',
-                type: 'error',
-                text: 'Couldn\'t remove the cart item from the database'
-            })
+            outputNotification('Couldn\'t remove the item from the database')
         })
     },
     updateQuantity({ state, commit, dispatch }, payload) {
@@ -197,19 +157,9 @@ export const actions = {
                 }).then(response => {
                     const { msg, err, authorizationError } = response.data
                     if (msg) {
-                        Vue.notify({
-                            group: 'notification',
-                            title: 'Cart status:',
-                            type: 'success',
-                            text: msg
-                        })
+                        outputNotification(null, msg)
                     } else {
-                        Vue.notify({
-                            group: 'notification',
-                            title: 'Cart status:',
-                            type: 'error',
-                            text: err
-                        })
+                        outputNotification(err)
                         if (authorizationError) {
                             this.$auth.logout().then(() => {
                                 dispatch('toggleIsCartOpen', false)
@@ -219,12 +169,7 @@ export const actions = {
                     }
                 }).catch(err => {
                     console.error(err)
-                    Vue.notify({
-                        group: 'notification',
-                        title: 'Error caught:',
-                        type: 'error',
-                        text: 'Couldn\'t update the item in the database'
-                    })
+                    outputNotification('Couldn\'t update the item in the database')
                 })
             }
         } else {
@@ -244,19 +189,9 @@ export const actions = {
             }).then(response => {
                 const { msg, err, authorizationError } = response.data
                 if (msg) {
-                    Vue.notify({
-                        group: 'notification',
-                        title: 'Cart status:',
-                        type: 'success',
-                        text: msg
-                    })
+                    outputNotification(null, msg)
                 } else {
-                    Vue.notify({
-                        group: 'notification',
-                        title: 'Cart status:',
-                        type: 'error',
-                        text: err
-                    })
+                    outputNotification(err)
                     if (authorizationError) {
                         this.$auth.logout().then(() => {
                             dispatch('toggleIsCartOpen', false)
@@ -266,12 +201,7 @@ export const actions = {
                 }
             }).catch(err => {
                 console.error(err)
-                Vue.notify({
-                    group: 'notification',
-                    title: 'Error caught:',
-                    type: 'error',
-                    text: 'Couldn\'t update the item in the database'
-                })
+                outputNotification('Couldn\'t update the item in the database')
             })
         }
     },

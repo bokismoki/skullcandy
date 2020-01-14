@@ -96,6 +96,8 @@
 </template>
 
 <script>
+import { outputNotification } from '~/Utils'
+
 export default {
   name: 'Product',
   head() {
@@ -120,21 +122,11 @@ export default {
           })
           this.$store.dispatch('toggleIsCartOpen', true)
         } else {
-          this.$notify({
-            group: 'notification',
-            title: 'Error caught:',
-            type: 'error',
-            text: 'Please use the right number'
-          })
+          outputNotification('Please use the right number')
         }
         this.quantity = 1
       } else {
-        this.$notify({
-          group: 'notification',
-          title: 'Error caught:',
-          type: 'error',
-          text: 'Please sign in in order to make a purchase'
-        })
+        outputNotification('Please sing in in order to make a purchase')
       }
     }
   },

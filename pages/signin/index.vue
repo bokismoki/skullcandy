@@ -57,6 +57,8 @@
 </template>
 
 <script>
+import { outputNotification } from '~/Utils'
+
 export default {
   name: 'SignIn',
   middleware: ['isAuth'],
@@ -98,42 +100,22 @@ export default {
                       this.$store.dispatch('initCartItems', [])
                     }
                   } else {
-                    this.$notify({
-                      group: 'notification',
-                      title: 'Error caught:',
-                      type: 'error',
-                      text: err
-                    })
+                    outputNotification(err)
                   }
                 })
                 .catch(err => {
                   console.error(err)
-                  this.$notify({
-                    group: 'notification',
-                    title: 'Error caught:',
-                    type: 'error',
-                    text: "Couldn't load the cart"
-                  })
+                  outputNotification("Couldn't load the cart")
                 })
 
               this.$router.push({ name: 'index' })
             } else {
-              this.$notify({
-                group: 'notification',
-                title: 'Error caught:',
-                type: 'error',
-                text: err
-              })
+              outputNotification(err)
             }
           })
           .catch(err => {
             console.error(err)
-            this.$notify({
-              group: 'notification',
-              title: 'Error caught:',
-              type: 'error',
-              text: "Couldn't sign in"
-            })
+            outputNotification("Couldn't sing in ")
           })
       }
     }

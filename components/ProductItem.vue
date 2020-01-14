@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import { outputNotification } from '~/Utils'
+
 export default {
   name: 'ProductItem',
   props: ['product'],
@@ -37,12 +39,7 @@ export default {
         this.$store.dispatch('addItem', { ...item, quantity: 1 })
         this.$store.dispatch('toggleIsCartOpen', true)
       } else {
-        this.$notify({
-          group: 'notification',
-          title: 'Error caught:',
-          type: 'error',
-          text: 'Please sign in in order to make a purchase'
-        })
+        outputNotification('Please sign in in order to make a purchase')
       }
     }
   }

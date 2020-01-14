@@ -103,6 +103,8 @@
 </template>
 
 <script>
+import { outputNotification } from '~/Utils'
+
 export default {
   name: 'SignUp',
   middleware: ['isAuth'],
@@ -140,32 +142,17 @@ export default {
                 })
                 this.$router.push({ name: 'index' })
               } else {
-                this.$notify({
-                  group: 'notification',
-                  title: 'Error caught:',
-                  type: 'error',
-                  text: err
-                })
+                outputNotification(err)
               }
             })
             .catch(err => {
               console.error(err)
-              this.$notify({
-                group: 'notification',
-                title: 'Error caught:',
-                type: 'error',
-                text: "Couldn't register a new user"
-              })
+              outputNotification("Couldn't register a new user")
             })
         }
       } catch (err) {
         console.error(err)
-        this.$notify({
-          group: 'notification',
-          title: 'Error caught:',
-          type: 'error',
-          text: "Couldn't register a new user"
-        })
+        outputNotification("Couldn't register a new user")
       }
     }
   }
