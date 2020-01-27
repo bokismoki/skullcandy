@@ -7,10 +7,10 @@ module.exports = async (req, res, next) => {
         const authorizationHeader = req.headers['authorization']
         const cookiesHeader = req.headers['cookie']
 
-        const authorizationToken = authorizationHeader.split(', ')[1]
-        cookieToken = cookiesHeader.split('; ').find(header => header.includes('jwt=')).split('=')[1]
+        if (typeof authorizationHeader !== 'undefined' && typeof cookiesHeader !== 'undefined') {
 
-        if (typeof authorizationHeader !== 'undefined') {
+            const authorizationToken = authorizationHeader.split(', ')[1]
+            const cookieToken = cookiesHeader.split('; ').find(header => header.includes('auth._token.local=')).split('=')[1]
 
             const authorizationDecode = await jwt.decode(authorizationToken, process.env.JWT_SECRET)
             const cookieDecode = await jwt.decode(cookieToken, process.env.JWT_SECRET)
