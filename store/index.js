@@ -4,7 +4,9 @@ export const state = () => ({
     products: [],
     cartItems: [],
     isCartOpen: false,
-    isSideNavOpen: false
+    isSideNavOpen: false,
+    isSearchOpen: false,
+    searchItems: []
 })
 
 export const getters = {
@@ -17,7 +19,9 @@ export const getters = {
         }, 0)
     },
     isCartOpen: state => state.isCartOpen,
-    isSideNavOpen: state => state.isSideNavOpen
+    isSideNavOpen: state => state.isSideNavOpen,
+    isSearchOpen: state => state.isSearchOpen,
+    searchItems: state => state.searchItems
 }
 
 export const mutations = {
@@ -43,8 +47,14 @@ export const mutations = {
     TOGGLE_IS_SIDE_NAV_OPEN: (state, payload) => {
         state.isSideNavOpen = payload
     },
+    TOGGLE_IS_SEARCH_OPEN: (state, payload) => {
+        state.isSearchOpen = payload
+    },
     INIT_CART_ITEMS: (state, payload) => {
         state.cartItems = payload
+    },
+    FILTER_SEARCH_ITEMS: (state, payload) => {
+        state.searchItems = payload
     }
 }
 
@@ -211,7 +221,14 @@ export const actions = {
     toggleIsSideNavOpen: ({ commit }, payload) => {
         commit('TOGGLE_IS_SIDE_NAV_OPEN', payload)
     },
+    toggleIsSearchOpen: ({ commit }, payload) => {
+        commit('TOGGLE_IS_SEARCH_OPEN', payload)
+    },
     initCartItems: ({ commit }, payload) => {
         commit('INIT_CART_ITEMS', payload)
+    },
+    filterSearchItems: ({ commit, state }, payload) => {
+        const filteredItems = state.products.filter(product => product.name.toLowerCase().includes(payload)).splice(0, 5)
+        commit('FILTER_SEARCH_ITEMS', filteredItems)
     }
 }

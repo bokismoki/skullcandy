@@ -109,6 +109,6 @@ module.exports = {
   },
 
   router: {
-    middleware: ['closeNav&Cart']
+    middleware: ['closeSideContent']
   }
 }

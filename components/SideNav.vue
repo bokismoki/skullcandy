@@ -200,16 +200,29 @@
           class="text-xs bg-transparent w-full p-1"
           type="text"
           placeholder="Search"
+          v-model="searchValue"
+          @input="search"
         />
       </li>
     </ul>
+    <div v-if="searchValue" class="my-2 px-3">
+      <div v-for="item in searchItems" :key="item._id">
+        <SearchItem :item="item" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import SearchItem from '~/components/SearchItem'
+
 export default {
   name: 'SideNav',
   props: ['isSideNavOpen'],
+  components: {
+    SearchItem
+  },
   data() {
     return {
       shopOpen: false,
@@ -218,8 +231,12 @@ export default {
       headphonesOpen: false,
       earbudsOpen: false,
       accessoriesOpen: false,
-      specialsOpen: false
+      specialsOpen: false,
+      searchValue: ''
     }
+  },
+  computed: {
+    ...mapGetters(['searchItems'])
   },
   methods: {
     logout() {
@@ -227,6 +244,14 @@ export default {
         this.$store.dispatch('toggleIsCartOpen', false)
         this.$store.dispatch('toggleIsSideNavOpen', false)
       })
+    },
+    search() {
+      if (this.searchValue.trim()) {
+        this.$store.dispatch(
+          'filterSearchItems',
+          this.searchValue.toLowerCase().trim()
+        )
+      }
     }
   }
 }

@@ -35,6 +35,7 @@
             class="hidden lg:inline w-5 mr-5"
             src="~/assets/img/magnifying_glass.svg"
             alt="Magnifying glass"
+            @click="toggleIsSearchOpen"
           />
           <button v-if="$auth.loggedIn" @click="toggleIsCartOpen" class="hoverScale w-5 flex">
             <img src="~/assets/img/cart.svg" alt="Shopping Cart" />
@@ -42,6 +43,9 @@
         </div>
       </div>
       <Cart />
+      <div v-if="isSearchOpen" class="hidden lg:block">
+        <Search />
+      </div>
       <transition name="nav-slide">
         <SideNav :isSideNavOpen="isSideNavOpen" />
       </transition>
@@ -53,15 +57,17 @@
 import { mapGetters } from 'vuex'
 import SideNav from '~/components/SideNav'
 import Cart from '~/components/Cart'
+import Search from '~/components/Search'
 
 export default {
   name: 'NavBar',
   components: {
     SideNav,
-    Cart
+    Cart,
+    Search
   },
   computed: {
-    ...mapGetters(['isCartOpen', 'isSideNavOpen'])
+    ...mapGetters(['isCartOpen', 'isSideNavOpen', 'isSearchOpen'])
   },
   methods: {
     toggleIsSideNavOpen() {
@@ -69,6 +75,9 @@ export default {
     },
     toggleIsCartOpen() {
       this.$store.dispatch('toggleIsCartOpen', !this.isCartOpen)
+    },
+    toggleIsSearchOpen() {
+      this.$store.dispatch('toggleIsSearchOpen', !this.isSearchOpen)
     },
     logout() {
       this.$auth.logout().then(() => {
