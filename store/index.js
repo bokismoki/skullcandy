@@ -55,6 +55,9 @@ export const mutations = {
     },
     FILTER_SEARCH_ITEMS: (state, payload) => {
         state.searchItems = payload
+    },
+    CLEAR_CART: state => {
+        state.cartItems = []
     }
 }
 
@@ -230,5 +233,8 @@ export const actions = {
     filterSearchItems: ({ commit, state }, payload) => {
         const filteredItems = state.products.filter(product => product.name.toLowerCase().includes(payload)).splice(0, 5)
         commit('FILTER_SEARCH_ITEMS', filteredItems)
+    },
+    clearCart: ({ commit }) => {
+        commit('CLEAR_CART')
     }
 }

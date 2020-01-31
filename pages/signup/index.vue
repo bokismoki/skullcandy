@@ -141,6 +141,7 @@ export default {
                   data: this.user
                 })
                 this.$router.push({ name: 'index' })
+                this.$store.dispatch('clearCart')
               } else {
                 outputNotification(err)
               }
