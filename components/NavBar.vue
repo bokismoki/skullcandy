@@ -32,7 +32,7 @@
             <img src="~/assets/img/user.svg" alt="User" />
           </nuxt-link>
           <img
-            class="hidden lg:inline w-5 mr-5"
+            class="hidden lg:inline w-5 mr-5 hoverScale"
             src="~/assets/img/magnifying_glass.svg"
             alt="Magnifying glass"
             @click="toggleIsSearchOpen"

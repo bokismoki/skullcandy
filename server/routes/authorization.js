@@ -12,8 +12,8 @@ module.exports = async (req, res, next) => {
             const authorizationToken = authorizationHeader.split(', ')[1]
             const cookieToken = cookiesHeader.split('; ').find(header => header.includes('auth._token.local=')).split('=')[1]
 
-            const authorizationDecode = await jwt.decode(authorizationToken, process.env.JWT_SECRET)
-            const cookieDecode = await jwt.decode(cookieToken, process.env.JWT_SECRET)
+            const authorizationDecode = await jwt.verify(authorizationToken, process.env.JWT_SECRET)
+            const cookieDecode = await jwt.verify(cookieToken, process.env.JWT_SECRET)
 
             if (authorizationDecode && cookieDecode && req.body.user_id) {
                 if (authorizationDecode.user_id === req.body.user_id && cookieDecode.user_id === req.body.user_id) {
