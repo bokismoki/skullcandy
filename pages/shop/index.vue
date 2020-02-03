@@ -31,9 +31,8 @@
       <div class="flex flex-col md:flex-row md:flex-wrap">
         <div
           class="my-5 md:w-1/2 md:px-1 lg:w-2/6"
-          v-for="product in products"
+          v-for="product in filteredProducts"
           :key="product._id"
-          v-if="product.category.includes(filter)"
         >
           <ProductItem :product="product" />
         </div>
@@ -60,7 +59,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['products'])
+    ...mapGetters(['products']),
+    filteredProducts() {
+      return this.products.filter(product =>
+        product.category.includes(this.filter)
+      )
+    }
   }
 }
 </script>
