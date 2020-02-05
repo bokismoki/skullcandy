@@ -27,7 +27,7 @@
         <p class="text-sm text-white my-4 sm:text-left sm:leading-none xl:text-lg">{{p}}</p>
         <nuxt-link
           :to="{name: 'shop'}"
-          class="text-sm cursor-pointer text-center bg-white w-full block py-3 tracking-wide hover:shadow-outline focus:shadow-outline"
+          class="text-sm cursor-pointer text-center bg-white w-full block py-3 tracking-wide hover:shadow-outline focus:shadow-outline xl:max-w-xs"
         >{{button}}</nuxt-link>
       </div>
     </div>
