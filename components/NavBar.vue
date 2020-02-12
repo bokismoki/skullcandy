@@ -72,17 +72,42 @@ export default {
   methods: {
     toggleIsSideNavOpen() {
       this.$store.dispatch('toggleIsSideNavOpen', !this.isSideNavOpen)
+      if (this.isCartOpen) {
+        this.$store.dispatch('toggleIsCartOpen', false)
+      }
+      if (this.isSearchOpen) {
+        this.$store.dispatch('toggleIsSearchOpen', false)
+      }
     },
     toggleIsCartOpen() {
       this.$store.dispatch('toggleIsCartOpen', !this.isCartOpen)
+      if (this.isSideNavOpen) {
+        this.$store.dispatch('toggleIsSideNavOpen', false)
+      }
+      if (this.isSearchOpen) {
+        this.$store.dispatch('toggleIsSearchOpen', false)
+      }
     },
     toggleIsSearchOpen() {
       this.$store.dispatch('toggleIsSearchOpen', !this.isSearchOpen)
+      if (this.isCartOpen) {
+        this.$store.dispatch('toggleIsCartOpen', false)
+      }
+      if (this.isSideNavOpen) {
+        this.$store.dispatch('toggleIsSideNavOpen', false)
+      }
     },
     logout() {
       this.$auth.logout().then(() => {
-        this.$store.dispatch('toggleIsCartOpen', false)
-        this.$store.dispatch('toggleIsSideNavOpen', false)
+        if (this.isCartOpen) {
+          this.$store.dispatch('toggleIsCartOpen', false)
+        }
+        if (this.isSideNavOpen) {
+          this.$store.dispatch('toggleIsSideNavOpen', false)
+        }
+        if (this.isSearchOpen) {
+          this.$store.dispatch('toggleIsSearchOpen', false)
+        }
       })
     }
   }
