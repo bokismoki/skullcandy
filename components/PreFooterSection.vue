@@ -17,6 +17,7 @@
       class="hidden section h-screen relative sm:block"
       :style="'background: url(' + requireImageSM + ') center/cover no-repeat'"
     >
+    <div class="relative container mx-auto h-full">
       <div
         class="p-5 text-center w-full sm:flex sm:flex-col absolute sm:w-2/5 sm:h-full sm:justify-center md:p-12 lg:px-20"
         :class="{'right-0': button === 'SHOP SALE'}"
@@ -30,6 +31,7 @@
           class="text-sm cursor-pointer text-center bg-white w-full block py-3 tracking-wide hover:shadow-outline focus:shadow-outline xl:max-w-xs"
         >{{button}}</nuxt-link>
       </div>
+    </div>
     </div>
   </section>
 </template>
