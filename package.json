@@ -22,7 +22,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.8.11",
     "nuxt": "^2.11.0",
-    "nuxt-lazy-load": "^1.0.5",
+    "nuxt-lazy-load": "^1.0.7",
     "tailwindcss-transitions": "^2.2.0",
     "vue-notification": "^1.3.20"
   },
