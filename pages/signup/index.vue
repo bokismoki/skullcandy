@@ -2,9 +2,13 @@
   <div class="sign-up container mx-auto" style="margin-top: 68px;">
     <div class="py-10 px-5 sm:max-w-lg sm:mx-auto">
       <h1 class="text-center font-black text-4xl md:text-5xl">SIGN UP</h1>
-      <form @submit.prevent="signup">
+      <form @submit.prevent="signup" class="mt-5">
+        <p class="text-xs font-semibold">* Required</p>
         <div class="mt-2">
-          <label class="inline-block text-sm cursor-pointer" for="email">Email Address</label>
+          <label class="inline-block text-sm cursor-pointer" for="email">
+            Email Address
+            <span class="font-black">*</span>
+          </label>
           <input
             class="border-2 w-full p-2 bg-gray-200 focus:border-gray-500"
             type="email"
@@ -13,7 +17,10 @@
           />
         </div>
         <div class="mt-2">
-          <label class="inline-block text-sm cursor-pointer" for="password">Password</label>
+          <label class="inline-block text-sm cursor-pointer" for="password">
+            Password
+            <span class="font-black">*</span>
+          </label>
           <input
             class="border-2 w-full p-2 bg-gray-200 focus:border-gray-500"
             type="password"
@@ -22,7 +29,10 @@
           />
         </div>
         <div class="mt-2">
-          <label class="inline-block text-sm cursor-pointer" for="confirmPassword">Confirm Password</label>
+          <label class="inline-block text-sm cursor-pointer" for="confirmPassword">
+            Confirm Password
+            <span class="font-black">*</span>
+          </label>
           <input
             class="border-2 w-full p-2 bg-gray-200 focus:border-gray-500"
             type="password"
@@ -150,6 +160,8 @@ export default {
               console.error(err)
               outputNotification("Couldn't register a new user")
             })
+        } else {
+          outputNotification('Please fill in all the required fields (*)')
         }
       } catch (err) {
         console.error(err)
