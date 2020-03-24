@@ -57,7 +57,6 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/auth',
-    'nuxt-lazy-load',
     '~modules/import-tailwind-config'
   ],
   /*
