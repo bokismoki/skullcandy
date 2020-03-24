@@ -5,7 +5,10 @@
         <h1 class="text-center font-black text-4xl md:text-left md:text-5xl">SIGN IN</h1>
         <form @submit.prevent="signin">
           <div>
-            <label class="inline-block text-sm cursor-pointer" for="email">Email Address:</label>
+            <label class="inline-block text-sm cursor-pointer" for="email">
+              Email Address:
+              <span class="font-black">*</span>
+            </label>
             <input
               class="border-2 w-full p-2 bg-gray-200 focus:border-gray-500"
               type="email"
@@ -14,7 +17,10 @@
             />
           </div>
           <div class="mt-2 lg:mt-5">
-            <label class="inline-block text-sm cursor-pointer" for="password">Password:</label>
+            <label class="inline-block text-sm cursor-pointer" for="password">
+              Password:
+              <span class="font-black">*</span>
+            </label>
             <input
               class="border-2 w-full p-2 bg-gray-200 focus:border-gray-500"
               type="password"
@@ -117,6 +123,8 @@ export default {
             console.error(err)
             outputNotification("Couldn't sing in ")
           })
+      } else {
+        outputNotification('Please fill in all the required fields (*)')
       }
     }
   }
