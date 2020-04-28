@@ -7,7 +7,7 @@ exports.get = async (req, res) => {
         if (cart) {
             res.send(cart)
         } else {
-            res.send({ err: 'Error while getting the cart' })
+            res.send({ msg: 'The cart is empty' })
         }
     } catch (err) {
         console.error(err)

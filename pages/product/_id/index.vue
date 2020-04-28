@@ -130,24 +130,15 @@ export default {
       }
     }
   },
-  asyncData({ $axios, params, redirect }) {
-    return $axios
-      .get(`/products/get/${params.id}`)
-      .then(response => {
-        const { err } = response.data
-        if (err) {
-          console.error(err)
-          redirect({ name: 'shop' })
-        } else {
-          return {
-            product: response.data
-          }
-        }
-      })
-      .catch(err => {
-        console.error(err)
-        redirect({ name: 'shop' })
-      })
+  asyncData({ store, params, redirect }) {
+    const product = store.getters.product(params.id)
+    if (product) {
+      return {
+        product
+      }
+    } else {
+      redirect({ name: 'index' })
+    }
   }
 }
 </script>
